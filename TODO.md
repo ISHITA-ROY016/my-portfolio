@@ -6,6 +6,7 @@
 
 # Component TODO List
 - [ ] Setup preLoader
+- [ ] Setup theme context
 - [ ] Build Header component
 - [ ] Build Footer component
 - [ ] Desing bg animation
