@@ -1,6 +1,5 @@
 import React from 'react'
 // import "./header.css"
-import HexagonProfile from './HexagonProfile'
 
 const AboutMe = () => {
     return (
