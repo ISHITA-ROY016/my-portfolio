@@ -13,7 +13,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="bg-darkHeaderBg w-full md:max-w-[70%] max-w-[95%] mx-auto mt-3 sm:mt-6 p-2 sm:p-4 rounded-lg flex flex-wrap justify-between items-center gap-4 sm:gap-8">
+    <div className="bg-darkHeaderBg w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6 p-2 sm:p-4 rounded-lg flex flex-wrap justify-between items-center gap-4 sm:gap-8">
 
       <button className="bg-darkSecondary p-3 rounded-lg md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
         <HiOutlineMenuAlt3 className="w-5 h-5 text-darkHeading" />

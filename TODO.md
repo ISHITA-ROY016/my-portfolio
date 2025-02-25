@@ -8,5 +8,6 @@
 - [ ] Setup preLoader
 - [ ] Setup theme context
 - [x] Build Header component
-- [ ] Build Footer component
+- [x] Build Footer component
 - [ ] Desing bg animation
+- [x] Build About Me component

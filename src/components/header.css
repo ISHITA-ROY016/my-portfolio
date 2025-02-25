@@ -3,19 +3,19 @@
 }
 
 .card-wrapper::before {
-        background: conic-gradient(
-            rgba(244, 114, 182, 0.4) 0deg,
+    background: conic-gradient(rgba(244, 114, 182, 0.4) 0deg,
             rgba(192, 132, 252, 0.4) 60deg,
-            transparent 180deg
-        );
-        content: ''; /* Ensure it's rendered */
-        position: absolute;
-        left: -25%;
-        top: -25%;
-        height: 150%;
-        width: 150%;
-        z-index: -1; /* Move it behind */
-        animation: border-spin 6s linear infinite;
+            transparent 180deg);
+    content: '';
+    /* Ensure it's rendered */
+    position: absolute;
+    left: -25%;
+    top: -25%;
+    height: 150%;
+    width: 150%;
+    z-index: -1;
+    /* Move it behind */
+    animation: border-spin 6s linear infinite;
 }
 
 @keyframes border-spin {
@@ -23,3 +23,24 @@
         transform: rotate(360deg);
     }
 }
+
+.highlight {
+    @apply text-darkComponent;
+}
+
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animated-gradient-text {
+    background: linear-gradient(to right, #785825, #f9c571, #785825);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 3s ease-in-out infinite;
+  }
+  

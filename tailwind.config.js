@@ -24,14 +24,14 @@ export default {
         darkHeaderBg: '#2A567A',  // Dark mode header background
         bioDark: '#F1E5FF',       // Dark mode bio font color
 
-        iconColor:'#EDAE49', // Icon color
+        iconColor: '#EDAE49', // Icon color
         borderColor: '#D1495B', // Border color
+
+        iconBorder: '#3b413d', // Icon border color in about me
 
         backgroundImage: {
           'gradient-secondary-light': 'linear-gradient(to bottom, #A9ADAE, #FFFFFF)', // Light mode secondary background
           'gradient-primary-dark': 'linear-gradient(90deg, #023751 0%, #01283B 22%, #011F2D 40%, #011925 62%, #010E15 84%, #010A0E 100%)', // Dark mode background
-
-          'frontendTag': 'linear-gradient(to right, #87632A, #EDAE49)', // Frontend tag color
         },
       }
     },
