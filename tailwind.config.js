@@ -23,6 +23,7 @@ export default {
         darkComponent: '#D1495B', // Dark mode secondary heading color
         darkHeaderBg: '#2A567A',  // Dark mode header background
         bioDark: '#F1E5FF',       // Dark mode bio font color
+        timelineColor: "#00798C", // Dark mode timeline color
 
         iconColor: '#EDAE49', // Icon color
         borderColor: '#D1495B', // Border color

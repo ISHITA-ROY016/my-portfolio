@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import "./app.css"
 import AboutMe from "./components/AboutMe"
 import TechMarquee from "./style/TechMarquee"
+import Education from "./components/Education"
 const App = () => {
   // const { isDarkMode, toggleTheme } = useTheme();
   return (
@@ -11,7 +12,7 @@ const App = () => {
       <Header />
       {/* <main className="flex-grow"> main component</main> */}
       <AboutMe />
-      {/* <AboutMe /> */}
+      <Education />
       <Footer />
        {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
        {/* <p>{isDarkMode ? 'Dark Mode' : 'Light Mode'}</p> */}
