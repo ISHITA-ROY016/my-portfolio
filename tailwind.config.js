@@ -27,6 +27,7 @@ export default {
 
         iconColor: '#EDAE49', // Icon color
         borderColor: '#D1495B', // Border color
+        textColor: '#B3B3B3', // Text color
 
         iconBorder: '#3b413d', // Icon border color in about me
 

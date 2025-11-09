@@ -12,7 +12,7 @@
 - [ ] Desing bg animation
 - [x] Build About Me component
 - [x] Build Education component
-- [ ] Build Skills component
+- [x] Build Skills component
 - [ ] Build Projects component
 - [ ] Build Mini Projects component
 - [ ] Build Experience component
