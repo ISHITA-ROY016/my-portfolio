@@ -2,7 +2,7 @@ import Typewriter from 'typewriter-effect';
 import "./header.css";
 import HighlightDiv from '../style/HighlightDiv';
 import TechMarquee from '../style/TechMarquee';
-import Download from '../assets/download.svg';
+import Download from '/assets/download.svg';
 
 const AboutMe = () => {
     const handleDownload = () => {
@@ -19,7 +19,7 @@ const AboutMe = () => {
 
             {/* Profile Image Section */}
             <div className='md:w-1/2 min-w-[150px] flex justify-center items-start'>
-                <img src="src/assets/profile_photo2.png" alt='profile-pic' className="w-4/5 h-auto object-cover rounded-lg" />
+                <img src="/assets/profile_photo2.png" alt='profile-pic' className="w-4/5 h-auto object-cover rounded-lg" />
             </div>
 
             {/* Text Content */}

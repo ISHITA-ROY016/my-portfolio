@@ -2,14 +2,14 @@ import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 
 const techLogos = [
-    { src: "src/assets/react.svg", alt: "React Logo" },
-    { src: "src/assets/js.svg", alt: "JavaScript Logo" },
-    { src: "src/assets/typescript.svg", alt: "TypeScript Logo" },
-    { src: "src/assets/redux.svg", alt: "Redux Logo" },
-    { src: "src/assets/firebase.svg", alt: "Firebase Logo" },
-    { src: "src/assets/nextjs.svg", alt: "Next.js Logo" },
-    { src: "src/assets/mongodb.png", alt: "MongoDB Logo" },
-    { src: "src/assets/postgresql.svg", alt: "PostgreSQL Logo" }
+    { src: "/assets/react.svg", alt: "React Logo" },
+    { src: "/assets/js.svg", alt: "JavaScript Logo" },
+    { src: "/assets/typescript.svg", alt: "TypeScript Logo" },
+    { src: "/assets/redux.svg", alt: "Redux Logo" },
+    { src: "/assets/firebase.svg", alt: "Firebase Logo" },
+    { src: "/assets/nextjs.svg", alt: "Next.js Logo" },
+    { src: "/assets/mongodb.png", alt: "MongoDB Logo" },
+    { src: "/assets/postgresql.svg", alt: "PostgreSQL Logo" }
 ];
 const SkillsTechMarquee = () => {
     const controls = useAnimation();

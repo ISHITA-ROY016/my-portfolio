@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SunIcon from "../assets/sun-icon.svg";
-import LinkedInIcon from "../assets/linkedin.svg";
-import GithubIcon from "../assets/github.svg";
-import LeetCodeIcon from "../assets/leetcode.svg";
+import SunIcon from "/assets/sun-icon.svg";
+import LinkedInIcon from "/assets/linkedin.svg";
+import GithubIcon from "/assets/github.svg";
+import LeetCodeIcon from "/assets/leetcode.svg";
 import { BiCodeAlt } from "react-icons/bi";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
