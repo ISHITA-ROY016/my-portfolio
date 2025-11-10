@@ -13,7 +13,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="bg-darkHeaderBg w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6 p-2 sm:p-4 rounded-lg flex flex-wrap justify-between items-center gap-4 sm:gap-8">
+    <header id="site-header" className="fixed top-3 left-1/2 -translate-x-1/2 bg-darkHeaderBg w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6 p-2 sm:p-4 rounded-lg flex flex-wrap justify-between items-center gap-4 sm:gap-8 z-50 shadow-md backdrop-blur-md">
 
       <button className="bg-darkSecondary p-3 rounded-lg md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
         <HiOutlineMenuAlt3 className="w-5 h-5 text-darkHeading" />
@@ -28,12 +28,13 @@ const Header = () => {
         {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map((section) => (
           <Link
             key={section}
-            to={section.toLowerCase().replace(" ", "")}
+            to={section.toLowerCase().replace(/\s+/g, '')}
             smooth={true}
             spy={true}
+            offset={-80}
             duration={500}
             className="cursor-pointer text-white hover:text-darkHeading"
-            activeClass="text-darkHeading"
+            activeClass="text-borderColor font-bold"
           >
             {section}
           </Link>
@@ -69,11 +70,13 @@ const Header = () => {
           {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map((section) => (
             <Link
               key={section}
-              to={section.toLowerCase().replace(" ", "")}
+              to={section.toLowerCase().replace(/\s+/g, '')}
               smooth={true}
               spy={true}
+              offset={-80}
               duration={500}
               className="cursor-pointer text-white text-sm hover:text-darkHeading"
+              activeClass="text-darkComponent"
               onClick={() => setMenuOpen(false)} // Close menu after click
             >
               {section}
@@ -81,7 +84,7 @@ const Header = () => {
           ))}
         </motion.div>
       )}
-    </div>
+    </header>
   );
 };
 

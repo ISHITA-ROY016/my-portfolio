@@ -1,21 +1,33 @@
 import React from 'react'
-import Timeline from './Timeline'
 import SkillsTechMarquee from './SkillsTechMarquee'
 
 const Skills = () => {
     return (
-        <div id='education' className='flex-grow bg-darkSecondary w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6 p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8'>
-            <div className='flex gap-3'>
-                <img src='/assets/Skills.svg' height={50} width={55} />
+        <div
+            id='skills'
+            className='flex-grow bg-darkSecondary w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6 p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8'
+        >
+            {/* Title */}
+            <div className='flex gap-3 items-center'>
+                <img src='/assets/Skills.svg' height={50} width={55} alt="skills-icon" />
                 <span className='text-4xl font-bold'>My Skills</span>
             </div>
-            <div className='flex justify-center gap-3 w-full'>
-                <div className='w-2/4 h-full flex items-center justify-center '>
+
+            {/* Responsive Layout */}
+            <div className='flex flex-col md:flex-row justify-center items-center md:items-start gap-6 md:gap-8 w-full'>
+
+                {/* Left Side — Tech Marquee */}
+                <div className='w-full md:w-1/2 h-full flex items-center justify-center'>
                     <SkillsTechMarquee />
                 </div>
-                <div className="items-center w-[2px] h-full bg-textColor"></div>
-                <div>
-                    <ul className="pl-5 space-y-3">
+
+                {/* Divider — visible only on medium+ screens */}
+                <div className='hidden md:block w-[2px] h-full bg-textColor opacity-60 items-center'></div>
+
+                {/* Right Side — Skills List */}
+                <div className='w-full md:w-1/2'>
+                    <ul className='pl-2 md:pl-5 space-y-3'>
+
                         {/* 🖥️ Frontend */}
                         <li className="flex items-start">
                             <span className="text-iconColor text-2xl mr-2">•</span>

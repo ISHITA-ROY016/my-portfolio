@@ -1,26 +1,37 @@
-// import { useTheme } from "./context/themeContext"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import "./app.css"
-import AboutMe from "./components/AboutMe"
-import TechMarquee from "./style/TechMarquee"
-import Education from "./components/Education"
-import Skills from "./components/Skills"
+import { useState, useEffect } from "react";
+import Header from "./components/Header";
+import AboutMe from "./components/AboutMe";
+import Education from "./components/Education";
+import Skills from "./components/Skills";
+import Footer from "./components/Footer";
+
 const App = () => {
-  // const { isDarkMode, toggleTheme } = useTheme();
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  useEffect(() => {
+    const header = document.getElementById("site-header");
+    if (header) {
+      const updateHeight = () => setHeaderHeight(header.offsetHeight + 32); // +32px breathing space
+      updateHeight();
+      window.addEventListener("resize", updateHeight);
+      return () => window.removeEventListener("resize", updateHeight);
+    }
+  }, []);
+
   return (
-    <div className="flex flex-col h-screen">
+    <div className="min-h-screen bg-darkPrimary flex flex-col">
+      {/* Fixed Header */}
       <Header />
-      {/* <main className="flex-grow"> main component</main> */}
-      <AboutMe />
-      <Education />
-      <Skills />
-       {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
-       {/* <p>{isDarkMode ? 'Dark Mode' : 'Light Mode'}</p> */}
-       <Footer />
+
+      {/* Actual Content starts below header */}
+      <main style={{ paddingTop: `${headerHeight}px` }}>
+        <AboutMe />
+        <Education />
+        <Skills />
+        <Footer />
+      </main>
     </div>
-  )
-}
+  );
+};
 
-export default App
-
+export default App;
