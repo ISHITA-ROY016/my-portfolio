@@ -11,6 +11,7 @@ import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("About Me");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -73,8 +74,11 @@ const Header = () => {
             spy={true}
             offset={-80}
             duration={500}
-            className="cursor-pointer text-white hover:text-darkHeading transition-colors duration-200"
-            activeClass="text-borderColor font-bold"
+            onSetActive={() => setActiveSection(section)}
+            className={`cursor-pointer transition-colors duration-200 ${activeSection === section
+              ? "text-[#D1495B] font-bold"
+              : "text-white hover:text-darkHeading"
+              }`}
           >
             {section}
           </Link>
@@ -120,9 +124,11 @@ const Header = () => {
               spy={true}
               offset={-80}
               duration={500}
-              className="cursor-pointer text-white text-sm hover:text-darkHeading"
-              activeClass="text-borderColor font-bold"
-              onClick={() => setMenuOpen(false)}
+              onSetActive={() => setActiveSection(section)}
+              className={`cursor-pointer transition-colors duration-200 ${activeSection === section
+                ? "text-[#D1495B] font-bold"
+                : "text-white hover:text-darkHeading"
+                }`}
             >
               {section}
             </Link>
