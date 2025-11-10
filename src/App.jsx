@@ -11,7 +11,14 @@ const App = () => {
   useEffect(() => {
     const header = document.getElementById("site-header");
     if (header) {
-      const updateHeight = () => setHeaderHeight(header.offsetHeight + 32); // +32px breathing space
+      const updateHeight = () => {
+        const baseHeight = header.offsetHeight;
+        const screenWidth = window.innerWidth;
+
+        // ✅ Mobile vs Desktop adjustment
+        const extraSpace = screenWidth < 640 ? 8 : 14; // 10px for mobile, 20px for larger screens
+        setHeaderHeight(baseHeight + extraSpace);
+      };
       updateHeight();
       window.addEventListener("resize", updateHeight);
       return () => window.removeEventListener("resize", updateHeight);
