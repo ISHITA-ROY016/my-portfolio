@@ -10,29 +10,80 @@ const Skills = () => {
                 <span className='text-4xl font-bold'>My Skills</span>
             </div>
             <div className='flex justify-center gap-3 w-full'>
-                <div className='w-2/4 h-[40px] '>
+                <div className='w-2/4 h-full flex items-center justify-center '>
                     <SkillsTechMarquee />
                 </div>
                 <div className="items-center w-[2px] h-full bg-textColor"></div>
                 <div>
-                    <ul className="pl-5">
-                        <li className="text-iconColor text-2xl before:content-['•'] before:text-iconColor before:text-6xl before:mr-2 before:mb-2 before:inline-block before:align-middle">
-                            Front-End: <span className='text-textColor text-lg font-semibold'>HTML, CSS, JS, TS, React, Redux</span>
+                    <ul className="pl-5 space-y-3">
+                        {/* 🖥️ Frontend */}
+                        <li className="flex items-start">
+                            <span className="text-iconColor text-2xl mr-2">•</span>
+                            <div>
+                                <span className="text-iconColor text-2xl font-semibold">Frontend:</span>{" "}
+                                <span className="text-textColor text-lg font-semibold"> 
+                                    HTML, CSS, JavaScript (ES6+), TypeScript, ReactJS, Redux, Context API,
+                                    Tailwind CSS, Material UI, Shadcn UI, Framer Motion
+                                </span>
+                            </div>
                         </li>
-                        <li className="text-iconColor text-2xl before:content-['•'] before:text-iconColor before:text-6xl before:mr-2 before:mb-2 before:inline-block before:align-middle">
-                            Styling and UI: <span className='text-textColor text-lg font-semibold'>Tailwind CSS, Material UI, Shadcn UI, Framer Motion</span>
+
+                        {/* ⚙️ Backend */}
+                        <li className="flex items-start">
+                            <span className="text-iconColor text-2xl mr-2">•</span>
+                            <div>
+                                <span className="text-iconColor text-2xl font-semibold">Backend:</span>{" "}
+                                <span className="text-textColor text-lg font-semibold">
+                                    Java, Spring (Core, Boot, ORM, DAO, AOP, AI), Hibernate, RESTful APIs,
+                                    Microservices
+                                </span>
+                            </div>
                         </li>
-                        <li className="text-iconColor text-2xl before:content-['•'] before:text-iconColor before:text-6xl before:mr-2 before:mb-2 before:inline-block before:align-middle">
-                            Testing: <span className='text-textColor text-lg font-semibold'>Jest, React Testing Library, Cypress</span>
+
+                        {/* 🗃️ Databases */}
+                        <li className="flex items-start">
+                            <span className="text-iconColor text-2xl mr-2">•</span>
+                            <div>
+                                <span className="text-iconColor text-2xl font-semibold">Databases:</span>{" "}
+                                <span className="text-textColor text-lg font-semibold">
+                                    SQL (Oracle, MySQL, PostgreSQL), MongoDB
+                                </span>
+                            </div>
                         </li>
-                        <li className="text-iconColor text-2xl before:content-['•'] before:text-iconColor before:text-6xl before:mr-2 before:mb-2 before:inline-block before:align-middle">
-                            Databases: <span className='text-textColor text-lg font-semibold'>Oracle, PostgreSQL, MongoDB</span>
+
+                        {/* 🧪 Testing */}
+                        <li className="flex items-start">
+                            <span className="text-iconColor text-2xl mr-2">•</span>
+                            <div>
+                                <span className="text-iconColor text-2xl font-semibold">Testing:</span>{" "}
+                                <span className="text-textColor text-lg font-semibold">
+                                    Jest, React Testing Library, Cypress
+                                </span>
+                            </div>
                         </li>
-                        <li className="text-iconColor text-2xl before:content-['•'] before:text-iconColor before:text-6xl before:mr-2 before:mb-2 before:inline-block before:align-middle">
-                            Tools and Platform: <span className='text-textColor text-lg font-semibold'>Azure, Power BI, Git</span>
+
+                        {/* 🔧 Tools & Platforms */}
+                        <li className="flex items-start">
+                            <span className="text-iconColor text-2xl mr-2">•</span>
+                            <div>
+                                <span className="text-iconColor text-2xl font-semibold">Tools & Platforms:</span>{" "}
+                                <span className="text-textColor text-lg font-semibold">
+                                    Git, GitHub, Jenkins (CI/CD), Firebase, IntelliJ IDEA, VS Code, Postman,
+                                    Bash Script (Linux), Power Platform, Azure, Swagger UI
+                                </span>
+                            </div>
                         </li>
-                        <li className="text-iconColor text-2xl before:content-['•'] before:text-iconColor before:text-6xl before:mr-2 before:mb-2 before:inline-block before:align-middle">
-                            Others: <span className='text-textColor text-lg font-semibold'>Java, Firebase, RESTful APIs, GraphQL, Postman  </span>
+
+                        {/* 💡 Core Concepts */}
+                        <li className="flex items-start">
+                            <span className="text-iconColor text-2xl mr-2">•</span>
+                            <div>
+                                <span className="text-iconColor text-2xl font-semibold">Core Concepts:</span>{" "}
+                                <span className="text-textColor text-lg font-semibold">
+                                    OOPs, MVC Architecture, Responsive Design, State Management, UI/UX Design,
+                                    Product Strategy
+                                </span>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -45,7 +45,7 @@ const AboutMe = () => {
                 {/* Role */}
                 <div className='max-w-full break-words'>
                     <span className='text-3xl sm:text-5xl md:text-6xl block font-bold text-bioDark'>
-                        Junior <span className='animated-gradient-text'>{"{"}Frontend{"}"}</span> Web & App Developer
+                        Junior <span className='animated-gradient-text'>{"{"}FullStack{"}"}</span> Web & App Developer
                         <span className='inline-block'>
                             <Typewriter
                                 options={{
