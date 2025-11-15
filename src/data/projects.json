@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Placeit",
+    "description": "A responsive full-stack web platform developed with React.js, Node.js, Express.js, and MongoDB, aimed at streamlining job placement processes. It implements modern UI design principles, Agile methodologies, and continuous feedback integration to deliver a scalable, user-friendly application.",
+    "techStack": ["React.js", "Node.js", "Express.js", "MongoDB", "Axios"],
+    "github": "https://github.com/ISHITA-ROY016/placeit",
+    "liveDemo": "https://placeit-main.netlify.app/",
+    "image": "/assets/projects/placeit.png",
+    "year": "2024"
+  },
+  {
+    "id": 2,
+    "title": "Habit Tracker & Wellness Journal",
+    "description": "A wellness-focused Spring Boot web app for tracking daily habits, moods, and productivity. Built with Maven, JPA, and PostgreSQL, it features secure authentication, RESTful APIs, and integrated Swagger UI documentation. CRUD operations manage habit and mood logs with Postman testing support.",
+    "techStack": ["Java", "Spring Boot", "PostgreSQL", "JPA", "Maven", "Swagger UI"],
+    "github": "https://github.com/ISHITA-ROY016/habittracker",
+    "liveDemo": "",
+    "image": "/assets/projects/habit-tracker.png",
+    "year": "2025"
+  },
+  {
+    "id": 3,
+    "title": "Shiksha Shakti",
+    "description": "A collaborative educational platform addressing teacher shortages and accessibility gaps. Developed with React.js and Django REST API, featuring a responsive interface, improved load times, and an intuitive resource-sharing workflow. Directed a 4-member team through full SDLC execution.",
+    "techStack": ["React.js", "Django", "Axios", "CSS3", "Git"],
+    "github": "https://github.com/ISHITA-ROY016/shiksha-shakti",
+    "liveDemo": "https://view.genial.ly/64abddfd1d855500107c99ca/presentation-sikhsha-shakti",
+    "image": "/assets/projects/shiksha-shakti.png",
+    "year": "2023"
+  },
+  {
+    "id": 4,
+    "title": "Movie Recommender System",
+    "description": "An ML-powered movie recommendation system built during Microsoft Engage 2022. Utilizes collaborative filtering and cosine similarity for personalized movie suggestions, improving recommendation accuracy through user rating analysis.",
+    "techStack": ["Python", "Pandas", "NumPy", "Scikit-learn", "Flask"],
+    "github": "https://github.com/ISHITA-ROY016/movie-recommend-system",
+    "liveDemo": "",
+    "image": "/assets/projects/movie-recommend.png",
+    "year": "2022"
+  },
+  {
+    "id": 5,
+    "title": "Portfolio Website — Ishita.dev",
+    "description": "A sleek, responsive developer portfolio built with React, Bun, and Tailwind CSS. It showcases my projects, skills, and experience with interactive animations powered by Framer Motion and smooth section transitions using React Scroll. Designed with a glassmorphism aesthetic and optimized for performance.",
+    "techStack": ["React.js", "Bun", "Tailwind CSS", "Framer Motion", "React Scroll"],
+    "github": "https://github.com/ISHITA-ROY016/my-portfolio",
+    "liveDemo": "https://ishita-roy016.github.io/",
+    "image": "/assets/projects/portfolio.png",
+    "year": "2025"
+  }
+]

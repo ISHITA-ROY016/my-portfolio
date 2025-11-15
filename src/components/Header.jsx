@@ -1,56 +1,141 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SunIcon from "/assets/sun-icon.svg";
 import LinkedInIcon from "/assets/linkedin.svg";
 import GithubIcon from "/assets/github.svg";
 import LeetCodeIcon from "/assets/leetcode.svg";
 import { BiCodeAlt } from "react-icons/bi";
 import { Link } from "react-scroll";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
+import { HiChevronDown } from "react-icons/hi";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("About Me");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [manualScroll, setManualScroll] = useState(false);
+  const sidebarRef = useRef(null);
+  const controls = useAnimation();
+  const lastScrollY = useRef(window.scrollY);
+
+  const isMobile = () => window.innerWidth < 768;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    lastScrollY.current = window.scrollY;
+    let timeoutId;
+
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      const deltaY = currentScroll - lastScrollY.current;
+      const multiplier = 0.7;
+      const maxMove = 12;
+      const movement = Math.max(-maxMove, Math.min(maxMove, -deltaY * multiplier));
+
+      controls.start({
+        y: movement,
+        transition: { type: "spring", stiffness: 220, damping: 16 },
+      });
+
+      clearTimeout(timeoutId);
+
+      timeoutId = window.setTimeout(() => {
+        controls.start({
+          y: 0,
+          transition: { type: "spring", stiffness: 140, damping: 20 },
+        });
+      }, 120);
+
+      lastScrollY.current = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, [controls]);
+
 
   useEffect(() => {
-    const sectionsToWatch = ["projects", "miniprojects"];
+    const sections = [
+      { id: "aboutme", name: "About Me" },
+      { id: "education", name: "Education" },
+      { id: "skills", name: "Skills" },
+      { id: "projects", name: "Projects" },
+      { id: "miniprojects", name: "Projects" },
+      { id: "experience", name: "Experience" },
+      { id: "connect", name: "Connect" },
+    ];
+
+    const manualRef = { current: manualScroll };
+    const manualUpdater = setInterval(() => {
+      manualRef.current = manualScroll;
+    }, 100);
+
+    const threshold = 0.15;
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection("Projects");
-          }
-        });
+        if (manualRef.current) return;
+
+        const visibleEntries = entries
+          .filter((e) => e.isIntersecting)
+          .map((e) => ({ id: e.target.id, ratio: e.intersectionRatio }));
+
+        if (visibleEntries.length === 0) return;
+
+        visibleEntries.sort((a, b) => b.ratio - a.ratio);
+        const top = visibleEntries[0];
+        if (top.ratio >= threshold) {
+          const found = sections.find((s) => s.id === top.id);
+          if (found) setActiveSection(found.name);
+        }
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.4, // how much of section is visible before trigger
+        rootMargin: "-20% 0px -40% 0px",
+        threshold: Array.from({ length: 20 }, (_, i) => i / 20),
       }
     );
 
-    sectionsToWatch.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      clearInterval(manualUpdater);
+      observer.disconnect();
+    };
+  }, [manualScroll]);
 
+
+  useEffect(() => {
+    if (!menuOpen) setDropdownOpen(false);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      setTimeout(() => setDropdownOpen(false), 150);
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
   return (
     <motion.header
       id="site-header"
+      animate={controls}
       style={{
-        transition: "all 0.4s ease-in-out",
         backdropFilter: "blur(20px) saturate(1.5)",
         WebkitBackdropFilter: "blur(20px) saturate(1.5)",
         background: scrolled
@@ -62,9 +147,10 @@ const Header = () => {
         border: scrolled
           ? "1px solid rgba(0, 255, 255, 0.25)"
           : "1px solid rgba(255, 255, 255, 0.08)",
+        willChange: "transform",
       }}
       className={`fixed top-3 inset-x-0 mx-auto w-[90%] sm:w-3/4 max-w-[95%]
-        p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 transition-all duration-300`}
+        p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 transition-colors duration-300`}
     >
       {/* 👈 Left Side: Menu + Logo */}
       <div className="flex items-center gap-3">
@@ -96,8 +182,8 @@ const Header = () => {
             {section === "Projects" ? (
               <>
                 <button
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
+                  onMouseEnter={() => !isMobile() && setDropdownOpen(true)}
+                  onMouseLeave={() => !isMobile() && setDropdownOpen(false)}
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   className={`cursor-pointer transition-colors duration-200 ${activeSection === "Projects"
                     ? "text-[#D1495B] font-bold"
@@ -134,12 +220,28 @@ const Header = () => {
                             to={to}
                             smooth={true}
                             spy={true}
-                            offset={-80}
+                            offset={-120}
                             duration={500}
                             onSetActive={() => setActiveSection("Projects")}
                             onClick={() => {
-                              setActiveSection("Projects");
+                              setManualScroll(true);
                               setDropdownOpen(false);
+                              const target = document.getElementById(to);
+                              if (!target) return;
+
+                              const observer = new IntersectionObserver(
+                                (entries) => {
+                                  const entry = entries[0];
+                                  if (entry.isIntersecting) {
+                                    setActiveSection("Projects");
+                                    setManualScroll(false);
+                                    observer.disconnect();
+                                  }
+                                },
+                                { threshold: 0.4 }
+                              );
+
+                              observer.observe(target);
                             }}
                             className="w-full text-white group-hover:text-darkHeading transition-colors duration-200"
                           >
@@ -159,7 +261,7 @@ const Header = () => {
                 to={section.toLowerCase().replace(/\s+/g, "")}
                 smooth={true}
                 spy={true}
-                offset={-80}
+                offset={-120}
                 duration={500}
                 onSetActive={() => setActiveSection(section)}
                 className={`cursor-pointer transition-colors duration-200 ${activeSection === section
@@ -191,40 +293,118 @@ const Header = () => {
       </div>
 
       {/* 📱 Mobile Menu */}
-      {menuOpen && (
-        <motion.div
-          initial={{ x: "-100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ duration: 0.3 }}
-          className="fixed top-0 left-0 h-screen w-56 bg-darkHeaderBg/90 shadow-lg flex flex-col items-start p-4 space-y-3 z-50 backdrop-blur-lg"
-        >
-          <button
-            className="text-white text-xl self-end mb-2"
-            onClick={() => setMenuOpen(false)}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            ref={sidebarRef}
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 left-0 h-screen w-56 bg-darkHeaderBg/90 shadow-lg flex flex-col items-start p-4 space-y-3 z-50 backdrop-blur-lg"
           >
-            <HiOutlineX />
-          </button>
-          {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map((section) => (
-            <Link
-              key={section}
-              to={section.toLowerCase().replace(/\s+/g, "")}
-              smooth={true}
-              spy={true}
-              offset={-80}
-              duration={500}
-              onSetActive={() => setActiveSection(section)}
-              className={`cursor-pointer transition-colors duration-200 ${activeSection === section
-                ? "text-[#D1495B] font-bold"
-                : "text-white hover:text-darkHeading"
-                }`}
+            {/* Close button */}
+            <button
+              className="text-white text-xl self-end mb-2"
               onClick={() => setMenuOpen(false)}
             >
-              {section}
-            </Link>
-          ))}
-        </motion.div>
-      )}
+              <HiOutlineX />
+            </button>
+
+            {/* Mobile Menu Links */}
+            {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map(
+              (section) => (
+                <div key={section} className="w-full">
+                  {section === "Projects" ? (
+                    <>
+                      <button
+                        onClick={() => setDropdownOpen((prev) => !prev)}
+                        className={`w-full text-left cursor-pointer transition-transform ease-in-out duration-300 flex justify-between items-center ${activeSection === "Projects"
+                          ? "text-[#D1495B] font-bold"
+                          : "text-white hover:text-darkHeading"
+                          }`}
+                      >
+                        {section}
+                        <HiChevronDown
+                          className={`text-white transform transition-transform duration-300 ${dropdownOpen ? "rotate-180" : "rotate-0"
+                            }`}
+                        />
+                      </button>
+
+                      {/* Submenu */}
+                      <AnimatePresence>
+                        {dropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -6 }}
+                            transition={{ duration: 0.2 }}
+                            className="ml-4 mt-2 flex flex-col gap-2"
+                          >
+                            {[{ name: "Projects", to: "projects" },
+                            { name: "Mini Projects", to: "miniprojects" }].map(
+                              ({ name, to }) => (
+                                <Link
+                                  key={name}
+                                  to={to}
+                                  smooth={true}
+                                  spy={true}
+                                  offset={-120}
+                                  duration={500}
+                                  onClick={() => {
+                                    setManualScroll(true);
+                                    setDropdownOpen(false);
+                                    setMenuOpen(false);
+                                    const target = document.getElementById(to);
+                                    if (!target) return;
+
+                                    const observer = new IntersectionObserver(
+                                      (entries) => {
+                                        const entry = entries[0];
+                                        if (entry.isIntersecting) {
+                                          setActiveSection("Projects");
+                                          setManualScroll(false);
+                                          observer.disconnect();
+                                        }
+                                      },
+                                      { threshold: 0.4 }
+                                    );
+
+                                    observer.observe(target);
+                                  }}
+                                  className="text-white/80 text-sm hover:text-[#D1495B] transition-colors"
+                                >
+                                  {name}
+                                </Link>
+                              )
+                            )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link
+                      to={section.toLowerCase().replace(/\s+/g, "")}
+                      smooth={true}
+                      spy={true}
+                      offset={-120}
+                      duration={500}
+                      onSetActive={() => setActiveSection(section)}
+                      className={`block cursor-pointer transition-colors duration-200 ${activeSection === section
+                        ? "text-[#D1495B] font-bold"
+                        : "text-white hover:text-darkHeading"
+                        }`}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {section}
+                    </Link>
+                  )}
+                </div>
+              )
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
