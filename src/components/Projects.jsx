@@ -35,9 +35,7 @@ const Projects = () => {
     return (
         <div
             id="projects"
-            className="flex-grow bg-darkSecondary w-full md:w-3/4 max-w-[95%] mx-auto 
-      mt-3 sm:mt-6 p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center 
-      gap-6 sm:gap-8"
+            className="flex-grow bg-darkSecondary w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6 p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-6 sm:gap-8"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
         >
@@ -72,7 +70,7 @@ const Projects = () => {
 
                         {/* 📜 Details */}
                         <div className="md:w-1/2 flex flex-col gap-3 text-white">
-                            <h2 className="text-2xl font-bold text-darkHeading">{current.title}</h2>
+                            <h2 className="text-2xl font-bold text-darkHeading">{index + 1}. {current.title}</h2>
                             <p className="text-darkText">{current.description}</p>
 
                             <div className="border-t border-white/20 my-2"></div>
