@@ -1,0 +1,79 @@
+[
+    {
+        "title": "JWT Auth API",
+        "category": "Backend",
+        "description": "A secure authentication backend with access & refresh tokens.",
+        "techStack": [
+            "Node.js",
+            "Express",
+            "JWT",
+            "Redis"
+        ],
+        "github": "https://github.com/your/jwt-auth"
+    },
+    {
+        "title": "File Upload Service",
+        "category": "Backend",
+        "description": "Backend service for secure file uploads with validation & cloud storage.",
+        "techStack": [
+            "Node.js",
+            "Multer",
+            "AWS S3"
+        ],
+        "github": "https://github.com/your/file-upload"
+    },
+    {
+        "title": "Rate Limiter",
+        "category": "Backend",
+        "description": "A production-grade rate-limiting middleware using Redis counters.",
+        "techStack": [
+            "Node.js",
+            "Express",
+            "Redis"
+        ],
+        "github": "https://github.com/your/rate-limiter"
+    },
+    {
+        "title": "Webhook Listener",
+        "category": "Backend",
+        "description": "Generic webhook listener for Stripe/GitHub events.",
+        "techStack": [
+            "Node.js",
+            "Express"
+        ],
+        "github": "https://github.com/your/webhook-listener"
+    },
+    {
+        "title": "JWT Auth API",
+        "category": "Backend",
+        "description": "A secure authentication backend with access & refresh tokens.",
+        "techStack": [
+            "Node.js",
+            "Express",
+            "JWT",
+            "Redis"
+        ],
+        "github": "https://github.com/your/jwt-auth"
+    },
+    {
+        "title": "Rate Limiter",
+        "category": "Backend",
+        "description": "A production-grade rate-limiting middleware using Redis counters.",
+        "techStack": [
+            "Node.js",
+            "Express",
+            "Redis"
+        ],
+        "github": "https://github.com/your/rate-limiter"
+    },
+    {
+        "title": "Webhook Listener",
+        "category": "Backend",
+        "description": "Generic webhook listener for Stripe/GitHub events.",
+        "techStack": [
+            "Node.js",
+            "Express"
+        ],
+        "github": "https://github.com/your/webhook-listener"
+    }
+]
