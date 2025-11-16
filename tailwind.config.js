@@ -30,12 +30,12 @@ export default {
         textColor: '#B3B3B3', // Text color
 
         iconBorder: '#3b413d', // Icon border color in about me
+      },
 
-        backgroundImage: {
-          'gradient-secondary-light': 'linear-gradient(to bottom, #A9ADAE, #FFFFFF)', // Light mode secondary background
-          'gradient-primary-dark': 'linear-gradient(90deg, #023751 0%, #01283B 22%, #011F2D 40%, #011925 62%, #010E15 84%, #010A0E 100%)', // Dark mode background
-        },
-      }
+      backgroundImage: {
+        'gradient-secondary-light': 'linear-gradient(to bottom, #A9ADAE, #FFFFFF)', // Light mode secondary background
+        'gradient-primary-dark': 'linear-gradient(360deg, #023751 0%, #01283B 22%, #011F2D 40%, #011925 62%, #010E15 84%, #010A0E 100%)', // Dark mode background
+      },
     },
   },
   plugins: [],

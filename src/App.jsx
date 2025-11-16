@@ -30,7 +30,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-darkPrimary flex flex-col">
+    <div className="min-h-screen bg-gradient-primary-dark bg-fixed bg-cover bg-no-repeat flex flex-col">
       {/* Fixed Header */}
       <Header />
 
