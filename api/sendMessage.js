@@ -1,3 +1,9 @@
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -10,6 +16,10 @@ export default async function handler(req, res) {
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Missing required fields" });
     }
+
+    
+    console.log("BODY:", req.body);
+    console.log("KEY:", process.env.WEB3FORMS_KEY ? "exists" : "missing");
 
     // Send to Web3Forms (using secret key!)
     const web3Res = await fetch("https://api.web3forms.com/submit", {
@@ -37,6 +47,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: "Failed to send message" });
     }
   } catch (err) {
+    console.error("SERVER ERROR:", err);
     return res.status(500).json({ error: "Server error" });
   }
 }
