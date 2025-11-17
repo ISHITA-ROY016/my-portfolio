@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiPhone, FiMail, FiHome } from "react-icons/fi";
 import RippleButton from "../style/RippleButton.jsx";
+import Toast from "../style/Toast.jsx";
 
 const Connect = () => {
   const [formData, setFormData] = useState({
@@ -11,17 +12,33 @@ const Connect = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false);
   const [status, setStatus] = useState(null);
 
+  // 🔍 Validate fields
+  const validate = (data) => {
+    const newErrors = {};
+
+    if (!data.name.trim()) newErrors.name = "Name is required";
+    if (!data.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
+      newErrors.email = "Invalid email";
+    if (!data.message.trim()) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+    setIsValid(Object.keys(newErrors).length === 0);
+  };
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const updated = { ...formData, [e.target.name]: e.target.value };
+    setFormData(updated);
+    validate(updated);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isValid) return;
     setStatus("sending");
 
     const data = new FormData();
@@ -48,9 +65,29 @@ const Connect = () => {
         subject: "",
         message: "",
       });
+      setIsValid(false);
+      setTimeout(() => {
+        setStatus(null);
+        setErrors({});
+        setIsValid(false);
+      }, 3000);
+
     } else {
       setStatus("error");
+      setTimeout(() => {
+        setStatus(null);
+        setErrors({});
+        setIsValid(false);
+      }, 3000);
+
     }
+  };
+
+  // ⭐ Utility for dynamic borders
+  const borderClass = (field, value) => {
+    if (errors[field]) return "border-red-500";
+    if (value.trim()) return "border-green-500";
+    return "border-transparent";
   };
 
   return (
@@ -58,23 +95,39 @@ const Connect = () => {
       id="connect"
       className="w-full md:w-3/4 max-w-[95%] mx-auto mt-6 sm:mt-12 p-4 sm:p-6 flex flex-col justify-center"
     >
-      {/* Heading */}
+      <Toast
+        message={
+          status === "success"
+            ? "Message sent successfully!"
+            : status === "error"
+              ? "Something went wrong."
+              : ""
+        }
+        type={status}
+      />
       <h2 className="text-4xl font-bold text-darkHeading mb-10">
         Let’s Connect
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* LEFT SIDE — FORM */}
+        {/* LEFT — FORM */}
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* NAME */}
             <input
               name="name"
               value={formData.name}
               type="text"
-              placeholder="Your Name"
+              placeholder="Your Name *"
               onChange={handleChange}
-              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
+              // required
+              className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/50 border ${borderClass(
+                "name",
+                formData.name
+              )}`}
             />
+
+            {/* PHONE */}
             <input
               name="phone"
               value={formData.phone}
@@ -86,14 +139,21 @@ const Connect = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* EMAIL */}
             <input
               name="email"
               type="email"
               value={formData.email}
-              placeholder="Email"
+              placeholder="Email *"
+              // required
               onChange={handleChange}
-              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
+              className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/50 border ${borderClass(
+                "email",
+                formData.email
+              )}`}
             />
+
+            {/* SUBJECT */}
             <input
               name="subject"
               value={formData.subject}
@@ -104,34 +164,51 @@ const Connect = () => {
             />
           </div>
 
+          {/* Honeypot */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            style={{ display: "none" }}
+          />
+
+          {/* MESSAGE */}
           <textarea
             name="message"
             rows="4"
             value={formData.message}
-            placeholder="Message"
+            // required
+            placeholder="Message *"
             onChange={handleChange}
-            className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
+            className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/50 border ${borderClass(
+              "message",
+              formData.message
+            )}`}
           />
 
-          <RippleButton type="submit"
-            className="bg-darkHeading text-white font-semibold py-3 rounded-md mt-4
-             hover:bg-[#d98b1c] transition-all w-full text-center"
+          {/* SUBMIT BUTTON */}
+          <RippleButton
+            type="submit"
+            disabled={!isValid || status === "sending"}
+            className={`bg-darkHeading text-white font-semibold py-3 rounded-md mt-4 transition-all w-full text-center ${!isValid || status === "sending"
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-[#d98b1c] cursor-pointer"
+              }`}
           >
             {status === "sending" ? "Sending..." : "Send Message"}
           </RippleButton>
 
-          {status === "success" && (
-            <p className="text-green-400 mt-2">Message sent successfully!</p>
+          {/* {status === "success" && (
+            <p className="text-green-400 mt-2 transition-opacity duration-500">{status && "Message sent successfully!"}</p>
           )}
           {status === "error" && (
-            <p className="text-red-400 mt-2">Something went wrong.</p>
-          )}
+            <p className="text-red-400 mt-2 transition-opacity duration-500">{status && "Something went wrong."}</p>
+          )} */}
 
         </form>
 
-        {/* RIGHT SIDE — CONTACT DETAILS */}
+        {/* RIGHT — CONTACT DETAILS */}
         <div className="flex flex-col gap-8">
-          {/* PHONE */}
           <div className="flex items-start gap-4">
             <div className="p-3 border bg-darkHeaderBg border-darkHeading rounded-md text-darkHeading">
               <FiPhone size={24} />
@@ -142,7 +219,6 @@ const Connect = () => {
             </div>
           </div>
 
-          {/* EMAIL */}
           <div className="flex items-start gap-4">
             <div className="p-3 border bg-darkHeaderBg border-darkHeading rounded-md text-darkHeading">
               <FiMail size={24} />
@@ -153,7 +229,6 @@ const Connect = () => {
             </div>
           </div>
 
-          {/* ADDRESS */}
           <div className="flex items-start gap-4">
             <div className="p-3 border bg-darkHeaderBg border-darkHeading rounded-md text-darkHeading">
               <FiHome size={24} />
