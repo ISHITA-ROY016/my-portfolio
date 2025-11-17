@@ -16,6 +16,7 @@
 - [x] Build Projects component
 - [ ] Build Mini Projects component
 - [ ] Build Experience component
+- [x] Build Connect component
 
 # future components
-- [ ] Build Projects component
+- [ ] Build Blogs component

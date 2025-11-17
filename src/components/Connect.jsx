@@ -1,7 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiPhone, FiMail, FiHome } from "react-icons/fi";
+import RippleButton from "../style/RippleButton.jsx";
 
 const Connect = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      const res = await fetch("/api/sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <section
       id="connect"
@@ -14,46 +62,68 @@ const Connect = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* LEFT SIDE — FORM */}
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
+              name="name"
+              value={formData.name}
               type="text"
               placeholder="Your Name"
-              className="bg-[#EAE4FF] text-black px-4 py-3 rounded-md outline-none"
+              onChange={handleChange}
+              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
             />
             <input
+              name="phone"
+              value={formData.phone}
               type="text"
               placeholder="Phone"
-              className="bg-[#EAE4FF] text-black px-4 py-3 rounded-md outline-none"
+              onChange={handleChange}
+              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
+              name="email"
               type="email"
+              value={formData.email}
               placeholder="Email"
-              className="bg-[#EAE4FF] text-black px-4 py-3 rounded-md outline-none"
+              onChange={handleChange}
+              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
             />
             <input
+              name="subject"
+              value={formData.subject}
               type="text"
               placeholder="Subject"
-              className="bg-[#EAE4FF] text-black px-4 py-3 rounded-md outline-none"
+              onChange={handleChange}
+              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
             />
           </div>
 
           <textarea
+            name="message"
             rows="4"
+            value={formData.message}
             placeholder="Message"
-            className="bg-[#EAE4FF] text-black px-4 py-3 rounded-md outline-none"
+            onChange={handleChange}
+            className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
           />
 
-          <button
-            type="submit"
-            className="bg-darkHeading text-white font-semibold py-3 rounded-md mt-4 
-            hover:bg-[#f4a02a] transition-all"
+          <RippleButton
+            className="bg-darkHeading text-white font-semibold py-3 rounded-md mt-4
+             hover:bg-[#d98b1c] transition-all w-full text-center"
           >
-            Send Message
-          </button>
+            {status === "sending" ? "Sending..." : "Send Message"}
+          </RippleButton>
+
+          {status === "success" && (
+            <p className="text-green-400 mt-2">Message sent successfully!</p>
+          )}
+          {status === "error" && (
+            <p className="text-red-400 mt-2">Something went wrong.</p>
+          )}
+
         </form>
 
         {/* RIGHT SIDE — CONTACT DETAILS */}

@@ -24,6 +24,7 @@ export default {
         darkHeaderBg: '#2A567A',  // Dark mode header background
         bioDark: '#F1E5FF',       // Dark mode bio font color
         timelineColor: "#00798C", // Dark mode timeline color
+        ConnectBg: "#EAE4FF",
 
         iconColor: '#EDAE49', // Icon color
         borderColor: '#D1495B', // Border color
