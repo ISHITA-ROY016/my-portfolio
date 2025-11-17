@@ -29,6 +29,8 @@ export default async function handler(req, res) {
 
     const data = await web3Res.json();
 
+    console.log("web3forms response", data);
+
     if (data.success) {
       return res.status(200).json({ success: true });
     } else {
