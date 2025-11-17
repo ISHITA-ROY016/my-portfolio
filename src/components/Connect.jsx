@@ -110,7 +110,7 @@ const Connect = () => {
             className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
           />
 
-          <RippleButton
+          <RippleButton type="submit"
             className="bg-darkHeading text-white font-semibold py-3 rounded-md mt-4
              hover:bg-[#d98b1c] transition-all w-full text-center"
           >

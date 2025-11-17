@@ -1,0 +1,39 @@
+[
+  {
+    "company": "Skillvalley",
+    "role": "Software Developer Intern",
+    "period": "March 2023 - July 2023",
+    "type": "Internship",
+    "description": [
+      "Developed and implemented front-end architecture of a full stack TPO web application using React.js.",
+      "Created technical documentation for system architecture, user flow, and troubleshooting guides.",
+      "Improved onboarding and reduced dev support load by 25%."
+    ],
+    "techStack": ["React.js", "Axios", "MongoDB", "Express.js", "Node.js"],
+    "logo": "/assets/skillvalley.png"
+  },
+  {
+    "company": "Fyipen.com",
+    "role": "Frontend Developer",
+    "period": "Feb 2022 - Sept 2022",
+    "type": "Internship",
+    "description": [
+      "Maintained production UI features using React.",
+      "Optimised UI performance and improved reusability."
+    ],
+    "techStack": ["React.js", "Redux", "JavaScript"],
+    "logo": "/assets/fyipen.png"
+  },
+  {
+    "company": "Microsoft",
+    "role": "Software Engineer",
+    "period": "May 2022 - June 2022",
+    "type": "Full-Time",
+    "description": [
+      "Worked with internal engineering teams to improve cloud tooling.",
+      "Built dashboards with internal APIs and Azure services."
+    ],
+    "techStack": ["Azure", "C#", "TypeScript"],
+    "logo": "/assets/microsoft.png"
+  }
+]

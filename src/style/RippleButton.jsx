@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ripple.css"
 
-const RippleButton = ({ children, className, ...props }) => {
+const RippleButton = ({ children, className, type = "button", ...props }) => {
   const [rippleArray, setRippleArray] = useState([]);
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const RippleButton = ({ children, className, ...props }) => {
 
   return (
     <button
+      type={type}
       {...props}
       onClick={(e) => {
         createRipple(e);
