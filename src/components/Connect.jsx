@@ -24,28 +24,31 @@ const Connect = () => {
     e.preventDefault();
     setStatus("sending");
 
-    try {
-      const res = await fetch("/api/sendMessage", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+    const data = new FormData();
+    data.append("access_key", import.meta.env.VITE_WEB3_KEY);
+    data.append("name", formData.name);
+    data.append("phone", formData.phone);
+    data.append("email", formData.email);
+    data.append("subject", formData.subject);
+    data.append("message", formData.message);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: data,
+    });
+
+    const json = await res.json();
+
+    if (json.success) {
+      setStatus("success");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        subject: "",
+        message: "",
       });
-
-      const data = await res.json();
-
-      if (data.success) {
-        setStatus("success");
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        setStatus("error");
-      }
-    } catch {
+    } else {
       setStatus("error");
     }
   };
