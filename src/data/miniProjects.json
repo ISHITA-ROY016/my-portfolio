@@ -1,79 +1,64 @@
 [
     {
-        "title": "JWT Auth API",
-        "category": "Backend",
-        "description": "A secure authentication backend with access & refresh tokens.",
+        "title": "Expense Explorer",
+        "category": "Mobile App",
+        "description": "A clean and simple Flutter app to track weekly expenses with charts, date picker, and a scrollable list of transactions.",
         "techStack": [
-            "Node.js",
-            "Express",
-            "JWT",
-            "Redis"
+            "Flutter",
+            "Dart"
         ],
-        "github": "https://github.com/your/jwt-auth"
+        "github": "https://github.com/ISHITA-ROY016/Expense-explorer"
     },
     {
-        "title": "File Upload Service",
+        "title": "Job Application Portal",
         "category": "Backend",
-        "description": "Backend service for secure file uploads with validation & cloud storage.",
+        "description": "A Spring Boot + JSP based job application system supporting job listings, applications, and data handling.",
         "techStack": [
-            "Node.js",
-            "Multer",
-            "AWS S3"
+            "Java",
+            "Spring Boot",
+            "JSP",
+            "JSTL",
+            "Tomcat"
         ],
-        "github": "https://github.com/your/file-upload"
+        "github": "https://github.com/ISHITA-ROY016/JobApp"
     },
     {
-        "title": "Rate Limiter",
-        "category": "Backend",
-        "description": "A production-grade rate-limiting middleware using Redis counters.",
+        "title": "Netflix GPT",
+        "category": "Full Stack",
+        "description": "A Netflix-style movie browsing app with GPT-powered movie suggestions, user authentication, and dynamic movie data.",
         "techStack": [
-            "Node.js",
-            "Express",
-            "Redis"
+            "React",
+            "Firebase Auth",
+            "TMDB API",
+            "GPT API",
+            "Tailwind CSS"
         ],
-        "github": "https://github.com/your/rate-limiter"
+        "github": "https://github.com/ISHITA-ROY016/netflix-gpt"
     },
     {
-        "title": "Webhook Listener",
-        "category": "Backend",
-        "description": "Generic webhook listener for Stripe/GitHub events.",
+        "title": "Moody (Mood Tracker App)",
+        "category": "Frontend",
+        "description": "A mood-tracking web app to log daily emotions with notes, filters, and CRUD features. Built with Firebase for real-time data storage and authentication.",
         "techStack": [
-            "Node.js",
-            "Express"
+            "HTML/CSS",
+            "JavaScript",
+            "Firebase Auth",
+            "Firebase Firestore"
         ],
-        "github": "https://github.com/your/webhook-listener"
+        "github": "https://github.com/ISHITA-ROY016/Moody"
     },
     {
-        "title": "JWT Auth API",
+        "title": "Employee Directory (CRUD + CI/CD)",
         "category": "Backend",
-        "description": "A secure authentication backend with access & refresh tokens.",
+        "description": "A Spring Boot CRUD application with MySQL persistence, H2 in-memory tests, and full CI/CD pipeline setup.",
         "techStack": [
-            "Node.js",
-            "Express",
-            "JWT",
-            "Redis"
+            "Spring Boot",
+            "Java",
+            "MySQL",
+            "H2",
+            "Maven",
+            "CI/CD"
         ],
-        "github": "https://github.com/your/jwt-auth"
-    },
-    {
-        "title": "Rate Limiter",
-        "category": "Backend",
-        "description": "A production-grade rate-limiting middleware using Redis counters.",
-        "techStack": [
-            "Node.js",
-            "Express",
-            "Redis"
-        ],
-        "github": "https://github.com/your/rate-limiter"
-    },
-    {
-        "title": "Webhook Listener",
-        "category": "Backend",
-        "description": "Generic webhook listener for Stripe/GitHub events.",
-        "techStack": [
-            "Node.js",
-            "Express"
-        ],
-        "github": "https://github.com/your/webhook-listener"
+        "github": "https://github.com/ISHITA-ROY016/Employee-Directory"
     }
 ]

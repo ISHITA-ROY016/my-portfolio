@@ -14,29 +14,26 @@ const Experience = () => {
       {/* Title */}
       <div className="flex gap-3 items-center">
         <img src="/assets/experience.svg" width={35} height={50} />
-        <span className="text-4xl font-bold text-darkHeading">Experience</span>
+        <span className="text-4xl font-bold ">Experience</span>
       </div>
 
       <div className="flex flex-col md:flex-row gap-8 w-full">
         {/* LEFT — Experience List */}
         <div
-          className="w-full md:w-[30%] flex flex-col gap-4 pr-2 overflow-y-auto"
-          style={{ maxHeight: "350px" }}
+          className="w-full md:w-[30%] flex flex-col gap-4 pr-2"
         >
           {experienceData.map((item, idx) => (
             <button
               key={idx}
               onClick={() => setSelected(idx)}
               className={`
-    flex items-center gap-4 p-4 w-full rounded-lg transition-all border
-    ${selected === idx
+                  flex items-center gap-4 p-4 w-full rounded-lg transition-all border
+                  ${selected === idx
                   ? "bg-[#0b253a] border-[#EDAE49] shadow-[0_0_12px_#EDAE49]"
                   : "bg-[#123b52] border-white/10 hover:border-white/20"
                 }
-  `}
+                `}
             >
-
-
               <img
                 src={item.logo}
                 className="w-14 h-14 object-contain rounded-full bg-white"

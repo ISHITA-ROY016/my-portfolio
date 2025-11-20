@@ -2,6 +2,7 @@
 - [x] Set up the project
 - [x] Design components in figma
 - [x] Install dependencies
+- [ ] Set up theme context
 
 
 # Component TODO List
@@ -14,8 +15,8 @@
 - [x] Build Education component
 - [x] Build Skills component
 - [x] Build Projects component
-- [ ] Build Mini Projects component
-- [ ] Build Experience component
+- [x] Build Mini Projects component
+- [x] Build Experience component
 - [x] Build Connect component
 
 # future components

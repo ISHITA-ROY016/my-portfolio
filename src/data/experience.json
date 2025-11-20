@@ -1,39 +1,110 @@
 [
   {
+    "company": "Tata Consultancy Services",
+    "role": "System Engineer",
+    "period": "Apr 2025 - Present",
+    "type": "Full-Time",
+    "description": [
+      "Working on backend development for an enterprise insurance platform using Spring Boot in a high-scale banking environment.",
+      "Analyzing, understanding, and integrating existing Proposition Engine logic into new insurance journeys for different products.",
+      "Decoding and adapting Journey Engine configurations to ensure accurate policy flows and seamless customer experiences.",
+      "Collaborating with the Build/DevOps team to support CI/CD processes and ensure smooth deployment across environments.",
+      "Working with PostgreSQL and MongoDB for data handling, testing, and environment validation."
+    ],
+    "techStack": [
+      "Spring Boot",
+      "Java",
+      "PostgreSQL",
+      "MongoDB",
+      "Jenkins",
+      "CI/CD"
+    ],
+    "logo": "/assets/tcs.png"
+  },
+  {
+    "company": "Haletale",
+    "role": "Frontend Developer Intern",
+    "period": "Dec 2024 - Apr 2025",
+    "type": "Internship",
+    "description": [
+      "Rebuilt a scalable frontend architecture using React.js by refactoring legacy code and removing outdated, duplicate, and inconsistent UI components.",
+      "Unified multiple redundant dropdown and form components into clean reusable patterns, improving maintainability and cutting component duplication.",
+      "Enhanced application stability and user experience by modernizing old code and standardizing UI behaviour.",
+      "Authored detailed technical documentation, including component guidelines and integration notes for future developers.",
+      "Wrote complete release notes and changelogs covering new features, improvements, bug fixes, and technical upgrades."
+    ],
+    "techStack": [
+      "React.js",
+      "JavaScript",
+      "CSS",
+      "TailwindCSS",
+      "REST APIs"
+    ],
+    "logo": "/assets/haletale.png"
+  },
+  {
     "company": "Skillvalley",
     "role": "Software Developer Intern",
     "period": "March 2023 - July 2023",
     "type": "Internship",
     "description": [
-      "Developed and implemented front-end architecture of a full stack TPO web application using React.js.",
-      "Created technical documentation for system architecture, user flow, and troubleshooting guides.",
-      "Improved onboarding and reduced dev support load by 25%."
+      "Led the frontend development for a full-stack TPO web platform, collaborating with a 5-member team to deliver the product for a target client.",
+      "Designed and implemented the frontend architecture in React.js while ensuring seamless integration with backend APIs.",
+      "Coordinated closely with backend developers to align API contracts, resolve integration blockers, and maintain consistent data flow across the application.",
+      "Documented system architecture, user flows, and frontend workflows to support development continuity and reduce onboarding friction.",
+      "Improved developer efficiency by organizing reusable UI components and streamlining the component structure.",
+      "Helped reduce dev support load by 25% by providing clear troubleshooting guides and structured documentation."
     ],
-    "techStack": ["React.js", "Axios", "MongoDB", "Express.js", "Node.js"],
+    "techStack": [
+      "React.js",
+      "Axios",
+      "MongoDB",
+      "Express.js",
+      "Node.js"
+    ],
     "logo": "/assets/skillvalley.png"
   },
   {
     "company": "Fyipen.com",
-    "role": "Frontend Developer",
+    "role": "Flutter Developer Intern",
     "period": "Feb 2022 - Sept 2022",
     "type": "Internship",
     "description": [
-      "Maintained production UI features using React.",
-      "Optimised UI performance and improved reusability."
+      "Worked alongside a senior developer to build a production-ready doctors' medical application using Flutter.",
+      "Integrated Firebase services and implemented Redux-style state management to streamline data flow and optimize app responsiveness.",
+      "Improved app loading performance by 40%, enhancing user experience and overall stability.",
+      "Delivered rapid UI and feature updates based on stakeholder requirements, adapting quickly to evolving product needs in a fast-paced startup environment.",
+      "Ensured all implementations aligned with coding standards and relevant compliance guidelines to maintain a safe and reliable application experience."
     ],
-    "techStack": ["React.js", "Redux", "JavaScript"],
+    "techStack": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Redux Architecture",
+      "REST APIs"
+    ],
     "logo": "/assets/fyipen.png"
   },
   {
-    "company": "Microsoft",
-    "role": "Software Engineer",
+    "company": "Microsoft Engage",
+    "role": "Microsoft Engage Mentee",
     "period": "May 2022 - June 2022",
-    "type": "Full-Time",
+    "type": "Internship",
     "description": [
-      "Worked with internal engineering teams to improve cloud tooling.",
-      "Built dashboards with internal APIs and Azure services."
+      "Worked on a Machine Learning project to build a content-based Movie Recommendation System using Python and Jupyter Notebook.",
+      "Learned and implemented core ML concepts such as feature extraction, cosine similarity, and vectorization to generate accurate recommendations.",
+      "Engineered a scalable ML pipeline that improved the relevance and personalization of the recommendation results.",
+      "Created detailed project documentation including design diagrams, data flow representations, and architectural blueprints.",
+      "Integrated user-feedback iterations into the model workflow to refine recommendation accuracy and enhance the end-user experience."
     ],
-    "techStack": ["Azure", "C#", "TypeScript"],
+    "techStack": [
+      "Python",
+      "Jupyter Notebook",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Machine Learning"
+    ],
     "logo": "/assets/microsoft.png"
   }
 ]
