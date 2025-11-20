@@ -19,7 +19,7 @@
       "Jenkins",
       "CI/CD"
     ],
-    "logo": "/assets/tcs.png"
+    "logo": "/assets/companies/tata_consultancy_services_logo.svg"
   },
   {
     "company": "Haletale",
@@ -40,7 +40,7 @@
       "TailwindCSS",
       "REST APIs"
     ],
-    "logo": "/assets/haletale.png"
+    "logo": "/assets/companies/haletale_logo.svg"
   },
   {
     "company": "Skillvalley",
@@ -62,7 +62,7 @@
       "Express.js",
       "Node.js"
     ],
-    "logo": "/assets/skillvalley.png"
+    "logo": "/assets/companies/skillvalley_in_logo.svg"
   },
   {
     "company": "Fyipen.com",
@@ -83,7 +83,7 @@
       "Redux Architecture",
       "REST APIs"
     ],
-    "logo": "/assets/fyipen.png"
+    "logo": "/assets/companies/fyipen_private_limited_logo.svg"
   },
   {
     "company": "Microsoft Engage",
@@ -105,6 +105,6 @@
       "Scikit-learn",
       "Machine Learning"
     ],
-    "logo": "/assets/microsoft.png"
+    "logo": "/assets/companies/microsoft_logo.svg"
   }
 ]
