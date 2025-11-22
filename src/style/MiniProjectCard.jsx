@@ -3,21 +3,24 @@ import { FiRefreshCw } from "react-icons/fi";
 import GithubIcon from "/assets/github.svg";
 import "./miniProjects.css";
 
-const MiniProjectCard = ({ project }) => {
+const MiniProjectCard = ({ project, onFlipChange }) => {
     const [flipped, setFlipped] = useState(false);
     const [wobble, setWobble] = useState(0);
     const wrapperRef = useRef(null);
+
+    // Notify parent when flipped
+    useEffect(() => {
+        if (onFlipChange) onFlipChange(flipped);
+    }, [flipped]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        // Run wobble animation
                         setWobble(1);
                         setTimeout(() => setWobble(0), 900);
                     } else {
-                        // 👇 Auto-reset flip when card leaves viewport
                         setFlipped(false);
                     }
                 });
@@ -29,28 +32,21 @@ const MiniProjectCard = ({ project }) => {
         return () => observer.disconnect();
     }, []);
 
-    const wobbleRotation =
-        wobble === 1
-            ? "animate-wobble-y"
-            : "";
-
     return (
         <div
             ref={wrapperRef}
-            className={`relative h-48 sm:h-52 rounded-xl cursor-pointer select-none`}
+            className="relative h-48 sm:h-52 rounded-xl cursor-pointer select-none"
             style={{ perspective: "1200px" }}
             onClick={() => setFlipped(!flipped)}
         >
             <div
-                className={`w-full h-full duration-700 transform-style-preserve-3d ${wobbleRotation}`}
-                style={{
-                    transform: `rotateY(${flipped ? 180 : 0}deg)`
-                }}
+                className={`w-full h-full duration-700 transform-style-preserve-3d 
+                    ${wobble ? "animate-wobble-y" : ""}`}
+                style={{ transform: `rotateY(${flipped ? 180 : 0}deg)` }}
             >
                 {/* FRONT */}
                 <div className="absolute inset-0 bg-gray-300/60 rounded-xl backface-hidden 
                     flex flex-col justify-center items-center gap-2 p-2 overflow-hidden">
-
                     <span className="absolute top-2 right-2 px-2 py-0.5 text-[12px] font-semibold 
                         bg-[#0b253a] text-darkHeading rounded-md shadow">
                         {project.category}
@@ -83,10 +79,8 @@ const MiniProjectCard = ({ project }) => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-max mt-auto text-sm text-darkComponent font-semibold border 
-                            border-white/30 rounded-lg px-2 py-1 flex items-center gap-2 
-                            hover:bg-white/10 transition-all"
-                    >
+                        className="w-max mt-auto text-sm text-darkComponent 
+                               border border-white/30 rounded-lg px-2 py-1 flex items-center gap-2">
                         <img src={GithubIcon} className="w-4 h-4 filter invert brightness-100" />
                         <span>GitHub</span>
                     </a>
