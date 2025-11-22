@@ -30,10 +30,11 @@ const MiniProjects = () => {
     const rowsDesktop = splitIntoRowsDesktop(miniProjects);
 
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isFlipped, setIsFlipped] = useState(false); // NEW
+    const [isFlipped, setIsFlipped] = useState(false);
     const startX = useRef(null);
 
     useEffect(() => {
+        if (!isMobile) return;
         if (isFlipped) return; 
 
         const timer = setInterval(() => {
@@ -41,7 +42,8 @@ const MiniProjects = () => {
         }, 3000);
 
         return () => clearInterval(timer);
-    }, [isFlipped]);
+    }, [isMobile, isFlipped]);
+
 
     const handleTouchStart = (e) => {
         startX.current = e.touches[0].clientX;
