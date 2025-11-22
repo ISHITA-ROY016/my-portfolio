@@ -138,25 +138,23 @@ const Header = () => {
       style={{
         backdropFilter: "blur(20px) saturate(1.5)",
         WebkitBackdropFilter: "blur(20px) saturate(1.5)",
-        background: scrolled
-          ? "rgba(10, 25, 47, 0.6)"
-          : "rgba(15, 35, 60, 0.45)",
+        background: "rgba(6, 18, 33, 0.45)",
         boxShadow: scrolled
-          ? "0 0 20px rgba(0, 255, 255, 0.15), 0 4px 30px rgba(0, 0, 0, 0.4)"
+          ? "0 8px 25px rgba(7, 45, 84, 0.25)"
           : "0 0 15px rgba(0, 0, 0, 0.25)",
         border: scrolled
-          ? "1px solid rgba(0, 255, 255, 0.25)"
+          ? "1px solid rgba(135, 206, 250, 0.45)"
           : "1px solid rgba(255, 255, 255, 0.08)",
         willChange: "transform",
       }}
-      className={`fixed top-3 inset-x-0 mx-auto w-[90%] sm:w-3/4 max-w-[95%]
+      className={`fixed top-3 inset-x-0 mx-auto w-[90%] max-w-[95%]
         p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 transition-colors duration-300`}
     >
       {/* 👈 Left Side: Menu + Logo */}
       <div className="flex items-center gap-3">
         {/* ☰ Menu Icon (Mobile only) */}
         <button
-          className="bg-darkSecondary p-2.5 rounded-lg md:hidden hover:scale-105 transition-transform"
+          className="bg-darkSecondary p-2.5 rounded-lg lg:hidden hover:scale-105 transition-transform"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <HiOutlineMenuAlt3 className="w-5 h-5 text-iconColor" />
@@ -176,7 +174,7 @@ const Header = () => {
       </div>
 
       {/* 🌐 Nav Links (Desktop) */}
-      <div className="hidden md:flex justify-between items-center gap-8 font-semibold text-lg relative">
+      <div className="hidden lg:flex justify-between items-center gap-4 sm:gap-6 xl:gap-8 font-semibold text-lg relative">
         {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map((section) => (
           <div key={section} className="relative">
             {section === "Projects" ? (
