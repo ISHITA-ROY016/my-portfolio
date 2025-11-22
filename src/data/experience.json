@@ -49,7 +49,7 @@
     "role": "Software Developer Intern",
     "period": "March 2023 - July 2023",
     "type": "Internship",
-    "companyUrl": "https://skillvalley.in/",
+    "companyUrl": "https://www.linkedin.com/company/skillvalley-in/",
     "description": [
       "Led the frontend development for a full-stack TPO web platform, collaborating with a 5-member team to deliver the product for a target client.",
       "Designed and implemented the frontend architecture in React.js while ensuring seamless integration with backend APIs.",
@@ -72,7 +72,7 @@
     "role": "Flutter Developer Intern",
     "period": "Feb 2022 - Sept 2022",
     "type": "Internship",
-    "companyUrl": "https://fyipen.com/",
+    "companyUrl": "https://www.linkedin.com/company/fyipen-private-limited/",
     "description": [
       "Worked alongside a senior developer to build a production-ready doctors' medical application using Flutter.",
       "Integrated Firebase services and implemented Redux-style state management to streamline data flow and optimize app responsiveness.",
@@ -94,7 +94,7 @@
     "role": "Microsoft Engage Mentee",
     "period": "May 2022 - June 2022",
     "type": "Internship",
-    "companyUrl": "https://www.microsoft.com/en-us/research/careers/internships/engage/",
+    "companyUrl": "https://www.microsoft.com/en-in",
     "description": [
       "Worked on a Machine Learning project to build a content-based Movie Recommendation System using Python and Jupyter Notebook.",
       "Learned and implemented core ML concepts such as feature extraction, cosine similarity, and vectorization to generate accurate recommendations.",
