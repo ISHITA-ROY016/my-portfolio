@@ -58,15 +58,10 @@ const MiniProjects = () => {
                         key={idx}
                         className="grid gap-6"
                         style={{
-                            width: isMobile
-                                ? (row.length === 1 ? "100%" : "100%")   // ALWAYS FULL WIDTH ON MOBILE
-                                : rowWidth,                  // 👈 MAGIC HERE
+                            width: isMobile ? "100%" : rowWidth,
                             gridTemplateColumns: `
                                 repeat(
-                                    ${isMobile
-                                    ? (row.length === 1 ? 1 : 2)     // mobile: 1 → full width, else 2 columns
-                                    : row.length                     // desktop: use true length (2 or 3)
-                                },
+                                    ${isMobile ? 1 : row.length},
                                     1fr
                                 )
                             `
