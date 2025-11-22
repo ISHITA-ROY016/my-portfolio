@@ -1,6 +1,6 @@
 const HighlightDiv = ({children}) => {
     return (
-        <span className='text-darkComponent'>
+        <span className='text-darkComponent font-bold'>
             {children}
         </span>
     )

@@ -47,7 +47,7 @@ const MiniProjects = () => {
         >
             {/* Title */}
             <div className="flex items-center gap-3 mb-4 mx-auto">
-                <img src="/assets/projects.svg" height={50} width={55} alt="projects-icon" />
+                <img src="/assets/miniProjects.svg" height={50} width={55} alt="projects-icon" />
                 <span className="text-4xl font-bold text-white">Mini Projects</span>
             </div>
 

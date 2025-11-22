@@ -4,6 +4,7 @@
     "role": "System Engineer",
     "period": "Apr 2025 - Present",
     "type": "Full-Time",
+    "companyUrl": "https://www.tcs.com/",
     "description": [
       "Working on backend development for an enterprise insurance platform using Spring Boot in a high-scale banking environment.",
       "Analyzing, understanding, and integrating existing Proposition Engine logic into new insurance journeys for different products.",
@@ -26,6 +27,7 @@
     "role": "Frontend Developer Intern",
     "period": "Dec 2024 - Apr 2025",
     "type": "Internship",
+    "companyUrl": "https://haletale.com/",
     "description": [
       "Rebuilt a scalable frontend architecture using React.js by refactoring legacy code and removing outdated, duplicate, and inconsistent UI components.",
       "Unified multiple redundant dropdown and form components into clean reusable patterns, improving maintainability and cutting component duplication.",
@@ -47,6 +49,7 @@
     "role": "Software Developer Intern",
     "period": "March 2023 - July 2023",
     "type": "Internship",
+    "companyUrl": "https://skillvalley.in/",
     "description": [
       "Led the frontend development for a full-stack TPO web platform, collaborating with a 5-member team to deliver the product for a target client.",
       "Designed and implemented the frontend architecture in React.js while ensuring seamless integration with backend APIs.",
@@ -69,6 +72,7 @@
     "role": "Flutter Developer Intern",
     "period": "Feb 2022 - Sept 2022",
     "type": "Internship",
+    "companyUrl": "https://fyipen.com/",
     "description": [
       "Worked alongside a senior developer to build a production-ready doctors' medical application using Flutter.",
       "Integrated Firebase services and implemented Redux-style state management to streamline data flow and optimize app responsiveness.",
@@ -90,6 +94,7 @@
     "role": "Microsoft Engage Mentee",
     "period": "May 2022 - June 2022",
     "type": "Internship",
+    "companyUrl": "https://www.microsoft.com/en-us/research/careers/internships/engage/",
     "description": [
       "Worked on a Machine Learning project to build a content-based Movie Recommendation System using Python and Jupyter Notebook.",
       "Learned and implemented core ML concepts such as feature extraction, cosine similarity, and vectorization to generate accurate recommendations.",

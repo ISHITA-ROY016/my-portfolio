@@ -3,7 +3,8 @@
 - [x] Design components in figma
 - [x] Install dependencies
 - [ ] Set up theme context
-
+- [ ] Set up loading page
+- [ ] Make images/logos load faster
 
 # Component TODO List
 - [ ] Setup preLoader

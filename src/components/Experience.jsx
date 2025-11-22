@@ -13,7 +13,7 @@ const Experience = () => {
     >
       {/* Title */}
       <div className="flex gap-3 items-center">
-        <img src="/assets/experience.svg" width={35} height={50} />
+        <img src="/assets/experience.svg" width={55} height={50} />
         <span className="text-4xl font-bold ">Experience</span>
       </div>
 
@@ -48,12 +48,29 @@ const Experience = () => {
 
         {/* RIGHT — Details */}
         <div className="w-full md:w-[70%] bg-[#0b253a] rounded-xl p-6 border border-white/20">
-          <h2 className="text-2xl font-bold text-darkHeading">{exp.role}</h2>
+          {/* TOP ROW → Role + Visit Link */}
+          <div className="flex justify-between items-center w-full">
+            <h2 className="text-2xl font-bold text-darkHeading">{exp.role}</h2>
 
-          {/* Badge */}
+            {exp.companyUrl && (
+              <a
+                href={exp.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 border border-borderColor text-borderColor rounded-md text-sm font-bold hover:bg-borderColor hover:text-black transition"
+              >
+                Visit {exp.company} →
+              </a>
+            )}
+          </div>
+
+          {/* Job Type Badge */}
           <span
-            className={`inline-block mt-2 px-3 py-1 rounded-md text-xs font-semibold
-            ${exp.type === "Internship" ? "bg-[#F5A623] text-black" : "bg-[#3CB043] text-white"}`}
+            className={`inline-block mt-3 px-3 py-1 rounded-md text-xs font-semibold
+      ${exp.type === "Internship"
+                ? "bg-[#F5A623] text-black"
+                : "bg-[#3CB043] text-white"
+              }`}
           >
             {exp.type}
           </span>

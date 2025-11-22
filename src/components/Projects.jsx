@@ -68,11 +68,11 @@ const Projects = () => {
                     </div>
 
                     {/* Details */}
-                    <div className="md:w-1/2 flex flex-col gap-3 text-white">
+                    <div className="md:w-1/2 flex flex-col gap-3 text-darkText">
                         <h2 className="text-2xl font-bold text-darkHeading">
                             {index + 1}. {current.title}
                         </h2>
-                        <p className="text-darkText">{current.description}</p>
+                        <p className="text-darkText text-base">{current.description}</p>
 
                         <div className="border-t border-white/20 my-2"></div>
                         <h3 className="text-darkComponent font-semibold mb-1">
@@ -83,7 +83,7 @@ const Projects = () => {
                             {current.techStack.map((tech) => (
                                 <span
                                     key={tech}
-                                    className="px-2 py-1 text-xs bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
+                                    className="px-2 py-1 text-sm bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
                                 >
                                     {tech}
                                 </span>

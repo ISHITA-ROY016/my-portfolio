@@ -7,7 +7,7 @@ import Download from '/assets/download.svg';
 const AboutMe = () => {
     const handleDownload = () => {
         const link = document.createElement('a');
-        link.href = '/cv.pdf';
+        link.href = '/pdf/cv.pdf';
         link.download = 'Ishita_Roy_CV.pdf';
         document.body.appendChild(link);
         link.click();
@@ -64,7 +64,7 @@ const AboutMe = () => {
                 <div className='mt-2'>
                     <span>
                         <HighlightDiv>&lt;p&gt;</HighlightDiv>
-                        With expertise in cutting-edge technologies such as <HighlightDiv>React, Firebase, and Java</HighlightDiv>... I deliver web solutions that are both innovative and robust.
+                        With expertise in cutting-edge technologies such as <HighlightDiv>React, Spring Boot, and Jenkins</HighlightDiv>...  I deliver production-ready web solutions that are both innovative and robust.
                         <HighlightDiv>&lt;/p&gt;</HighlightDiv>
                     </span>
                 </div>
@@ -77,7 +77,7 @@ const AboutMe = () => {
                 </div>
                 <div>
                     <button className='flex items-center p-3 border border-solid border-black rounded-lg backdrop-blur-lg bg-white/0' onClick={handleDownload}>
-                        <img src={Download} alt='download'/>
+                        <img src={Download} alt='download' />
                         <span className='text-[#B3B3B3]'>[ Download my cv ]</span>
                     </button>
                 </div>

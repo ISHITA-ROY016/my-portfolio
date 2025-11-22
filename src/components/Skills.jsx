@@ -22,7 +22,7 @@ const Skills = () => {
                 </div>
 
                 {/* Divider — visible only on medium+ screens */}
-                <div className='hidden md:block w-[2px] self-stretch bg-textColor opacity-60 items-center'></div>
+                <div className='hidden md:block w-[2px] self-stretch bg-darkText opacity-60 items-center'></div>
 
                 {/* Right Side — Skills List */}
                 <div className='w-full md:w-[60%]'>
@@ -32,8 +32,8 @@ const Skills = () => {
                         <li className="flex items-start">
                             <span className="text-iconColor text-2xl mr-2">•</span>
                             <div>
-                                <span className="text-iconColor text-2xl font-semibold">Frontend:</span>{" "}
-                                <span className="text-textColor text-lg font-semibold"> 
+                                <span className="text-iconColor text-2xl font-semibold ">Frontend:</span>{" "}
+                                <span className="text-darkText text-base font-semibold ml-2">
                                     HTML, CSS, JavaScript (ES6+), TypeScript, ReactJS, Redux, Context API,
                                     Tailwind CSS, Material UI, Shadcn UI, Framer Motion
                                 </span>
@@ -45,7 +45,7 @@ const Skills = () => {
                             <span className="text-iconColor text-2xl mr-2">•</span>
                             <div>
                                 <span className="text-iconColor text-2xl font-semibold">Backend:</span>{" "}
-                                <span className="text-textColor text-lg font-semibold">
+                                <span className="text-darkText text-base font-semibold ml-2">
                                     Java, Spring (Core, Boot, ORM, DAO, AOP, AI), Hibernate, RESTful APIs,
                                     Microservices
                                 </span>
@@ -57,7 +57,7 @@ const Skills = () => {
                             <span className="text-iconColor text-2xl mr-2">•</span>
                             <div>
                                 <span className="text-iconColor text-2xl font-semibold">Databases:</span>{" "}
-                                <span className="text-textColor text-lg font-semibold">
+                                <span className="text-darkText text-base font-semibold ml-2">
                                     SQL (Oracle, MySQL, PostgreSQL), MongoDB
                                 </span>
                             </div>
@@ -68,7 +68,7 @@ const Skills = () => {
                             <span className="text-iconColor text-2xl mr-2">•</span>
                             <div>
                                 <span className="text-iconColor text-2xl font-semibold">Testing:</span>{" "}
-                                <span className="text-textColor text-lg font-semibold">
+                                <span className="text-darkText text-base font-semibold ml-2">
                                     Jest, React Testing Library, Cypress
                                 </span>
                             </div>
@@ -79,7 +79,7 @@ const Skills = () => {
                             <span className="text-iconColor text-2xl mr-2">•</span>
                             <div>
                                 <span className="text-iconColor text-2xl font-semibold">Tools & Platforms:</span>{" "}
-                                <span className="text-textColor text-lg font-semibold">
+                                <span className="text-darkText text-base font-semibold ml-2">
                                     Git, GitHub, Jenkins (CI/CD), Firebase, IntelliJ IDEA, VS Code, Postman,
                                     Bash Script (Linux), Power Platform, Azure, Swagger UI
                                 </span>
@@ -91,7 +91,7 @@ const Skills = () => {
                             <span className="text-iconColor text-2xl mr-2">•</span>
                             <div>
                                 <span className="text-iconColor text-2xl font-semibold">Core Concepts:</span>{" "}
-                                <span className="text-textColor text-lg font-semibold">
+                                <span className="text-darkText text-base font-semibold ml-2">
                                     OOPs, MVC Architecture, Responsive Design, State Management, UI/UX Design,
                                     Product Strategy
                                 </span>
