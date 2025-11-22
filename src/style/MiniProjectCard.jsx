@@ -22,12 +22,12 @@ const MiniProjectCard = ({ project }) => {
 ">
 
                     {/* Badge */}
-                    <span className="absolute top-2 right-2 px-2 py-0.5 md:text-[12px] text-[10px] font-semibold 
+                    <span className="absolute top-2 right-2 px-2 py-0.5 text-[12px] font-semibold 
                    bg-[#0b253a] text-darkHeading rounded-md shadow">
                         {project.category}
                     </span>
 
-                    <span className="text-sm md:text-2xl font-bold text-gray-800 text-center">
+                    <span className="text-xl md:text-2xl font-bold text-gray-800 text-center">
                         {project.title}
                     </span>
 
@@ -37,13 +37,13 @@ const MiniProjectCard = ({ project }) => {
                 {/* BACK */}
                 <div className="absolute inset-0 bg-[#123b52] text-white rounded-xl p-3 flex flex-col rotate-y-180 backface-hidden overflow-hidden
 ">
-                    <p className="text-xs md:text-sm text-white/90">{project.description}</p>
+                    <p className="text-sm text-white/90">{project.description}</p>
 
                     <div className="flex flex-wrap gap-1 mt-3">
                         {project.techStack.map((t, idx) => (
                             <span
                                 key={idx}
-                                className="px-2 py-0.5 text-[9px] md:text-[12px] text-darkHeading bg-[#0b253a] border border-white/20 rounded-md"
+                                className="px-2 py-0.5 text-[12px] text-darkHeading bg-[#0b253a] border border-white/20 rounded-md"
                             >
                                 {t}
                             </span>
@@ -52,7 +52,7 @@ const MiniProjectCard = ({ project }) => {
 
                     <a
                         href={project.github}
-                        className="w-max mt-auto text-xs md:text-sm text-darkComponent font-semibold border border-white/30 rounded-lg px-2 py-1 flex items-center gap-2 hover:bg-white/10 transition-all"
+                        className="w-max mt-auto text-sm text-darkComponent font-semibold border border-white/30 rounded-lg px-2 py-1 flex items-center gap-2 hover:bg-white/10 transition-all"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
