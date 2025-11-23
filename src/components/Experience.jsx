@@ -7,8 +7,8 @@ const Experience = () => {
   const exp = experienceData[selected];
 
   return (
-    <div id="experience" className="animated-border rounded-lg w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7">
-      <section
+    <div id="experience" className="animated-border rounded-lg w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7 relative z-10">
+      <div
         className="flex-grow bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8"
       >
         {/* Title */}
@@ -168,7 +168,7 @@ const Experience = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
