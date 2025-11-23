@@ -19,8 +19,7 @@ const App = () => {
         const baseHeight = header.offsetHeight;
         const screenWidth = window.innerWidth;
 
-        // ✅ Mobile vs Desktop adjustment
-        const extraSpace = screenWidth < 640 ? 8 : 14; // 10px for mobile, 20px for larger screens
+        const extraSpace = screenWidth < 640 ? 8 : 14;
         setHeaderHeight(baseHeight + extraSpace);
       };
       updateHeight();

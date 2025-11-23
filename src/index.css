@@ -16,6 +16,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom utilities */
+.touch-pan-y {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
 
+/* Animated border wrapper */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px; /* match your rounded-lg */
+}
 
+/* Slim moving border */
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px; /* << SUPER SLEEK BORDER */
+  border-radius: inherit;
+
+  /* Multi-color moving shine (white) */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  background-size: 200% 200%;
+  animation: shine-move 3s linear infinite;
+
+  /* Keep the border only, not overlay */
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+/* Smooth diagonal slide (same style as green moving border) */
+@keyframes shine-move {
+  0% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
 

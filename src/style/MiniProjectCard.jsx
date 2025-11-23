@@ -35,7 +35,7 @@ const MiniProjectCard = ({ project, onFlipChange }) => {
     return (
         <div
             ref={wrapperRef}
-            className="relative h-48 sm:h-52 rounded-xl cursor-pointer select-none"
+            className="relative h-52 sm:h-52 rounded-xl cursor-pointer select-none"
             style={{ perspective: "1200px" }}
             onClick={() => setFlipped(!flipped)}
         >

@@ -144,7 +144,7 @@ const Header = () => {
           : "0 0 15px rgba(0, 0, 0, 0.25)",
         border: scrolled
           ? "1px solid rgba(135, 206, 250, 0.45)"
-          : "1px solid rgba(255, 255, 255, 0.08)",
+          : "1px solid rgba(80, 77, 77, 0.573)",
         willChange: "transform",
       }}
       className={`fixed top-3 inset-x-0 mx-auto w-[90%] max-w-[95%]

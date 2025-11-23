@@ -46,16 +46,16 @@ const TechMarquee = () => {
     }, []);
 
     return (
-        <div className="flex relative overflow-hidden">
+        <div className="flex relative overflow-hidden items-center max-h-20 flex-none">
             <motion.div className="flex w-fit flex-shrink-0" animate={controls}>
                 {techLogos.map((logo, index) => (
                     <div
                         key={index}
-                        className="w-12 h-10 bg-[#012435] p-3 mx-3 border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer"
+                        className="flex-none w-8 h-7 p-1 mx-2 sm:mx-3 sm:w-12 sm:h-10 sm:p-3 bg-[#012435] border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer shrink-0"
                         onMouseEnter={(e) => handleEnter(e, logo)}
                         onMouseLeave={handleLeave}
                     >
-                        <img src={logo.src} alt={logo.alt} />
+                        <img src={logo.src} alt={logo.alt} className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                 ))}
             </motion.div>
@@ -64,11 +64,11 @@ const TechMarquee = () => {
                 {techLogos.map((logo, index) => (
                     <div
                         key={index}
-                        className="w-12 h-10 bg-[#012435] p-3 mx-3 border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer"
+                        className="flex-none w-8 h-7 p-1 mx-2 sm:mx-3 sm:w-12 sm:h-10 sm:p-3 bg-[#012435] border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer shrink-0"
                         onMouseEnter={(e) => handleEnter(e, logo)}
                         onMouseLeave={handleLeave}
                     >
-                        <img src={logo.src} alt={logo.alt} />
+                        <img src={logo.src} alt={logo.alt} className="w-5 h-5 sm:w-7 sm:h-7" />
                     </div>
                 ))}
             </motion.div>
