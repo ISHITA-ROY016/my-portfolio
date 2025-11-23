@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import MiniProjectCard from "../style/MiniProjectCard.jsx";
 import miniProjects from "../data/miniProjects.json";
 
@@ -24,14 +25,26 @@ const splitIntoRowsDesktop = (items) => {
     return rows;
 };
 
+const splitIntoRows = (items, itemsPerRow) => {
+    const rows = [];
+    for (let i = 0; i < items.length; i += itemsPerRow) {
+        rows.push(items.slice(i, i + itemsPerRow));
+    }
+    return rows;
+};
+
 const MiniProjects = () => {
-    const isMobile = window.innerWidth < 640;
+    const width = window.innerWidth;
+    const isMobile = width < 640;
+    const isTablet = width >= 640 && width < 1200;
+    const isDesktop = width >= 1200;
+
+    const rowsTablet = splitIntoRows(miniProjects, 2);
     const rowsDesktop = splitIntoRowsDesktop(miniProjects);
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
 
-    // ⏳ Auto-slide every 3 seconds unless flipped
     useEffect(() => {
         if (!isMobile) return;
         if (isFlipped) return;
@@ -55,14 +68,26 @@ const MiniProjects = () => {
                 <span className="text-4xl font-bold text-white">Mini Projects</span>
             </div>
 
-            {/* MOBILE VERSION */}
+            {/* MOBILE VERSION (1 card) */}
             {isMobile ? (
                 <div className="flex flex-col items-center gap-4 w-full">
-                    <div className="w-full transition-opacity duration-300" key={activeIndex}>
-                        <MiniProjectCard
-                            project={miniProjects[activeIndex]}
-                            onFlipChange={setIsFlipped}
-                        />
+
+                    <div className="relative w-full overflow-hidden">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeIndex}
+                                initial={{ opacity: 0, x: 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{ duration: 0.25, ease: "easeInOut" }}
+                                className="w-full"
+                            >
+                                <MiniProjectCard
+                                    project={miniProjects[activeIndex]}
+                                    onFlipChange={setIsFlipped}
+                                />
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
 
                     {/* Dots */}
@@ -72,16 +97,15 @@ const MiniProjects = () => {
                                 key={i}
                                 onClick={() => setActiveIndex(i)}
                                 className={`w-3 h-3 rounded-full transition-all 
-                                    ${i === activeIndex ? "bg-[#EDAE49]" : "bg-gray-500"}`
-                                }
+                                    ${i === activeIndex ? "bg-darkHeading" : "bg-gray-500"}`}
                             ></button>
                         ))}
                     </div>
                 </div>
             ) : (
-                /* DESKTOP VERSION */
+                /* TABLET (2 per row) + DESKTOP (3 per row) */
                 <div className="flex flex-col gap-8 w-full">
-                    {rowsDesktop.map((row, idx) => (
+                    {(isTablet ? rowsTablet : rowsDesktop).map((row, idx) => (
                         <div
                             key={idx}
                             className="grid gap-6 mx-auto"

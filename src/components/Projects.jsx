@@ -5,31 +5,58 @@ import GithubIcon from "/assets/github.svg";
 import projects from "../data/projects.json";
 
 const Projects = () => {
-    const [index, setIndex] = useState(0);
+    const [page, setPage] = useState(0);
     const [paused, setPaused] = useState(false);
-    const current = projects[index];
+    const [isAnimating, setIsAnimating] = useState(false);
+    const directionRef = useRef(1);
     const intervalRef = useRef(null);
 
-    // 🔄 Auto-slide
+    const current = projects[page];
+
+    // Auto-slide
     useEffect(() => {
         if (!paused) {
             intervalRef.current = setInterval(() => {
-                setIndex((prev) => (prev + 1) % projects.length);
+                directionRef.current = 1;
+                setPage((p) => (p + 1) % projects.length);
             }, 6000);
         }
         return () => clearInterval(intervalRef.current);
     }, [paused]);
 
-    // Manual navigation
-    const nextProject = () => setIndex((prev) => (prev + 1) % projects.length);
-    const prevProject = () =>
-        setIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    const nextProject = () => {
+        if (isAnimating) return;
+        directionRef.current = 1;
+        setPage((p) => (p + 1) % projects.length);
+    };
 
-    // Swipe (mobile)
-    const handleSwipe = (event, info) => {
-        const swipeDistance = info.offset.x;
-        if (swipeDistance > 100) prevProject();
-        else if (swipeDistance < -100) nextProject();
+    const prevProject = () => {
+        if (isAnimating) return;
+        directionRef.current = -1;
+        setPage((p) => (p - 1 + projects.length) % projects.length);
+    };
+
+    const variants = {
+        enter: (dir) => ({
+            x: dir === 1 ? 100 : -100,
+            opacity: 0,
+            position: "absolute",
+        }),
+        center: {
+            x: 0,
+            opacity: 1,
+            position: "absolute",
+        },
+        exit: (dir) => ({
+            x: dir === 1 ? -100 : 100,
+            opacity: 0,
+            position: "absolute",
+        }),
+    };
+
+    const handleSwipe = (e, info) => {
+        if (info.offset.x > 100) prevProject();
+        else if (info.offset.x < -100) nextProject();
     };
 
     return (
@@ -45,82 +72,91 @@ const Projects = () => {
                 <span className="text-4xl font-bold text-white">My Projects</span>
             </div>
 
-            {/* 🪄 Project Card (whole card moves now!) */}
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={index}
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    onDragEnd={handleSwipe}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                    className="relative w-full md:w-[95%] bg-[#0b253a] rounded-xl border border-white/10 shadow-lg p-4 sm:p-6 flex flex-col md:flex-row gap-6 items-center cursor-grab active:cursor-grabbing"
-                >
-                    {/* Image */}
-                    <div className="md:w-1/2 flex justify-center">
-                        <img
-                            src={current.image}
-                            alt={current.title}
-                            className="rounded-lg border border-white/20 object-cover w-full md:w-[90%] shadow-md"
-                        />
-                    </div>
-
-                    {/* Details */}
-                    <div className="md:w-1/2 flex flex-col gap-3 text-darkText">
-                        <h2 className="text-2xl font-bold text-darkHeading">
-                            {index + 1}. {current.title}
-                        </h2>
-                        <p className="text-darkText text-base">{current.description}</p>
-
-                        <div className="border-t border-white/20 my-2"></div>
-                        <h3 className="text-darkComponent font-semibold mb-1">
-                            Tech Stack
-                        </h3>
-
-                        <div className="flex flex-wrap gap-2 mt-2">
-                            {current.techStack.map((tech) => (
-                                <span
-                                    key={tech}
-                                    className="px-2 py-1 text-sm bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
+            {/* FIXED HEIGHT CONTAINER */}
+            <div className="relative w-full md:w-[95%] h-[700px] md:h-[500px] overflow-hidden">
+                <AnimatePresence initial={false} custom={directionRef.current}>
+                    <motion.div
+                        key={page}
+                        custom={directionRef.current}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        onDragEnd={handleSwipe}
+                        onAnimationStart={() => setIsAnimating(true)}
+                        onAnimationComplete={() => setIsAnimating(false)}
+                        className="absolute top-0 left-0 w-full h-full bg-[#0b253a] rounded-xl border border-white/10 shadow-xl p-4 sm:p-4 flex flex-col md:flex-row gap-6 items-center"
+                    >
+                        {/* IMAGE */}
+                        <div className="md:w-1/2 flex justify-center">
+                            <img
+                                src={current.image}
+                                alt={current.title}
+                                className="rounded-lg border border-white/20 w-full md:w-[90%] h-[230px] object-contain bg-[#143447] shadow-md"
+                            />
                         </div>
 
-                        {/* Buttons */}
-                        <div className="flex gap-4 mt-4">
-                            {current.liveDemo && (
+                        {/* TEXT CONTENT */}
+                        <div className="md:w-1/2 flex flex-col gap-3 text-darkText overflow-auto pr-2">
+                            <h2 className="text-2xl font-bold text-darkHeading">
+                                {page + 1}. {current.title}
+                            </h2>
+
+                            <p className="text-darkText text-base">
+                                {current.description}
+                            </p>
+
+                            <div className="border-t border-white/20 my-2"></div>
+
+                            <h3 className="text-darkComponent font-semibold mb-1">Tech Stack</h3>
+
+                            <div className="flex flex-wrap gap-2 mt-2">
+                                {current.techStack.map((tech) => (
+                                    <span
+                                        key={tech}
+                                        className="px-2 py-1 text-sm bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* BUTTONS */}
+                            <div className="flex gap-4 mt-4">
+                                {current.liveDemo && (
+                                    <a
+                                        href={current.liveDemo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm text-white border border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition-all"
+                                    >
+                                        🔗 Live Demo
+                                    </a>
+                                )}
+
                                 <a
-                                    href={current.liveDemo}
+                                    href={current.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-sm text-white border border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition-all"
                                 >
-                                    🔗 Live Demo
+                                    <img
+                                        src={GithubIcon}
+                                        alt="GitHub"
+                                        className="w-4 h-4 filter invert brightness-100"
+                                    />
+                                    <span>GitHub</span>
                                 </a>
-                            )}
-                            <a
-                                href={current.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-sm text-white border border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition-all"
-                            >
-                                <img
-                                    src={GithubIcon}
-                                    alt="GitHub"
-                                    className="w-4 h-4 filter invert brightness-100 text-textColor"
-                                />
-                                <span>GitHub</span>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-            </AnimatePresence>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
 
-            {/* Navigation Arrows */}
+            {/* NAVIGATION */}
             <div className="flex gap-6 mt-6">
                 <button
                     onClick={prevProject}
