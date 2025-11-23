@@ -8,10 +8,16 @@ const Projects = () => {
     const [page, setPage] = useState(0);
     const [paused, setPaused] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
+    const [imgLoaded, setImgLoaded] = useState(false);
     const directionRef = useRef(1);
     const intervalRef = useRef(null);
 
     const current = projects[page];
+
+    useEffect(() => {
+        setImgLoaded(false);
+    }, [page]);
+
 
     // Auto-slide
     useEffect(() => {
@@ -93,11 +99,17 @@ const Projects = () => {
                             <div className="pointer-events-auto flex flex-col [@media(min-width:900px)]:flex-row gap-6 items-center h-full">
                                 {/* IMAGE */}
                                 <div className="md:w-1/2 flex justify-center">
-                                    <img
-                                        src={current.image}
-                                        alt={current.title}
-                                        className="rounded-lg border border-white/20 w-full md:w-[90%] h-[150px] sm:h-[210px] object-content object-center bg-[#143447] shadow-md"
-                                    />
+                                    <div className="relative w-full md:w-[90%] h-[150px] sm:h-[210px] rounded-lg overflow-hidden">
+                                        {!imgLoaded && (
+                                            <div className="absolute inset-0 bg-gray-500/20 rounded-lg animate-pulse"></div>
+                                        )}
+                                        <img
+                                            src={current.image}
+                                            alt={current.title}
+                                            onLoad={() => setImgLoaded(true)}
+                                            className={`rounded-lg border border-white/20 w-full h-full object-cover bg-[#143447] shadow-md transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* TEXT CONTENT */}
