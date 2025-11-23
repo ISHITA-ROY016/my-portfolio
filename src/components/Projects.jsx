@@ -73,7 +73,7 @@ const Projects = () => {
             </div>
 
             {/* FIXED HEIGHT CONTAINER */}
-            <div className="relative w-full md:w-[95%] h-[700px] md:h-[500px] overflow-hidden">
+            <div className="relative w-full md:w-[95%] h-[810px] md:h-[500px] overflow-hidden">
                 <AnimatePresence initial={false} custom={directionRef.current}>
                     <motion.div
                         key={page}
@@ -95,7 +95,7 @@ const Projects = () => {
                             <img
                                 src={current.image}
                                 alt={current.title}
-                                className="rounded-lg border border-white/20 w-full md:w-[90%] h-[230px] object-contain bg-[#143447] shadow-md"
+                                className="rounded-lg border border-white/20 w-full md:w-[90%] h-[200px] object-content object-center bg-[#143447] shadow-md"
                             />
                         </div>
 
