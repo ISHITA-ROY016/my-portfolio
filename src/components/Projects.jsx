@@ -73,7 +73,7 @@ const Projects = () => {
                 </div>
 
                 {/* FIXED HEIGHT CONTAINER */}
-                <div className="relative w-full md:w-[95%] h-[810px] md:h-[500px] overflow-hidden">
+                <div className="relative w-full md:w-[95%] h-[670px] md:h-[550px] xl:h-[400px] overflow-hidden">
                     <AnimatePresence initial={false} custom={directionRef.current}>
                         <motion.div
                             key={page}
@@ -90,35 +90,35 @@ const Projects = () => {
                             onAnimationComplete={() => setIsAnimating(false)}
                             className="absolute top-0 left-0 w-full h-full bg-[#0b253a] rounded-xl border border-white/10 shadow-xl p-4 sm:p-4 pointer-events-none"
                         >
-                            <div className="pointer-events-auto flex flex-col md:flex-row gap-6 items-center h-full">
+                            <div className="pointer-events-auto flex flex-col [@media(min-width:900px)]:flex-row gap-6 items-center h-full">
                                 {/* IMAGE */}
                                 <div className="md:w-1/2 flex justify-center">
                                     <img
                                         src={current.image}
                                         alt={current.title}
-                                        className="rounded-lg border border-white/20 w-full md:w-[90%] h-[200px] object-content object-center bg-[#143447] shadow-md"
+                                        className="rounded-lg border border-white/20 w-full md:w-[90%] h-[150px] sm:h-[210px] object-content object-center bg-[#143447] shadow-md"
                                     />
                                 </div>
 
                                 {/* TEXT CONTENT */}
                                 <div className="md:w-1/2 flex flex-col gap-3 text-darkText overflow-auto pr-2 touch-pan-y">
-                                    <h2 className="text-2xl font-bold text-darkHeading">
+                                    <h2 className="text-xl md:text-2xl font-bold text-darkHeading">
                                         {page + 1}. {current.title}
                                     </h2>
 
-                                    <p className="text-darkText text-base">
+                                    <p className="text-darkText text-sm md:text-base leading-relaxed">
                                         {current.description}
                                     </p>
 
                                     <div className="border-t border-white/20 my-2"></div>
 
-                                    <h3 className="text-darkComponent font-semibold mb-1">Tech Stack</h3>
+                                    <h3 className="text-darkComponent font-semibold mb-0 md:mb-1">Tech Stack</h3>
 
-                                    <div className="flex flex-wrap gap-2 mt-2">
+                                    <div className="flex flex-wrap gap-2 mt-1 md:mt-2">
                                         {current.techStack.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-2 py-1 text-sm bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
+                                                className="px-2 py-1 text-xs bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
                                             >
                                                 {tech}
                                             </span>
@@ -159,7 +159,7 @@ const Projects = () => {
                 </div>
 
                 {/* NAVIGATION */}
-                <div className="flex gap-6 mt-6 relative z-50">
+                <div className="flex gap-6 mt-3 md:mt-6 relative z-50">
                     <button
                         onClick={prevProject}
                         className="p-3 bg-darkHeaderBg border border-[#f5a623]/40 rounded-full hover:scale-110 hover:bg-[#f5a623]/10 transition-all cursor-pointer"

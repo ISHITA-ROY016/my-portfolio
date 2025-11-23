@@ -45,7 +45,7 @@ const MiniProjectCard = ({ project, onFlipChange }) => {
                 style={{ transform: `rotateY(${flipped ? 180 : 0}deg)` }}
             >
                 {/* FRONT */}
-                <div className="absolute inset-0 bg-gray-300/60 rounded-xl backface-hidden 
+                <div className="absolute inset-0 bg-gray-300/50 rounded-xl backface-hidden 
                     flex flex-col justify-center items-center gap-2 p-2 overflow-hidden">
                     <span className="absolute top-2 right-2 px-2 py-0.5 text-[12px] font-semibold 
                         bg-[#0b253a] text-darkHeading rounded-md shadow">
