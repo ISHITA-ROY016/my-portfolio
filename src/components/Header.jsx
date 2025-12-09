@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import SunIcon from "/assets/sun-icon.svg";
+import MoonIcon from "/assets/moonIcon.svg";
 import LinkedInIcon from "/assets/linkedin.svg";
 import GithubIcon from "/assets/github.svg";
 import LeetCodeIcon from "/assets/leetcode.svg";
@@ -8,6 +9,7 @@ import { Link } from "react-scroll";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
 import { HiChevronDown } from "react-icons/hi";
+import { ThemeContext } from "../context/themeContext";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,6 +17,7 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("About Me");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [manualScroll, setManualScroll] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const sidebarRef = useRef(null);
   const controls = useAnimation();
   const lastScrollY = useRef(window.scrollY);
@@ -285,8 +288,8 @@ const Header = () => {
         <a href="https://leetcode.com/u/royishita016/" target="_blank" rel="noopener noreferrer">
           <img src={LeetCodeIcon} alt="LeetCode" className="w-5 h-5 sm:w-6 sm:h-6 hover:scale-110 transition-transform" />
         </a>
-        <button className="bg-darkSecondary p-2.5 rounded-lg hover:scale-110 transition-transform">
-          <img src={SunIcon} alt="Sun Icon" className="w-5 h-5 sm:w-6 sm:h-6" />
+        <button className="bg-[#7A8A8A] dark:bg-darkSecondary p-2.5 rounded-lg hover:scale-110 transition-transform" onClick={toggleTheme} >
+          <img src={theme === "dark" ? SunIcon : MoonIcon} alt="Theme Icon" className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
 

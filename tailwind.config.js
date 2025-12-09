@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ["class", '[data-theme="dark"]'],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -12,8 +13,8 @@ export default {
         border: '#cccccc',        // Light mode border color
         text: '#111111',          // Light mode text color
         accent: '#ff6347',        // Light mode accent color
-        HeaderBg: '#ADAEAE',      // Light mode header background
-        HeaderSecondaryBg: '#7A8A8A', // Light mode secondary heading color => theme bg
+        headerBg: '#ADAEAE',      // Light mode header background
+        headerSecondaryBg: '#7A8A8A', // Light mode secondary heading color => theme bg
         // Dark mode colors
         darkSecondary: '#1F405B', // Dark mode secondary background
         darkHeading: '#ffffff',   // Dark mode heading color

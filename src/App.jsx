@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Loader from "./loader/Loader";
-
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
 import Education from "./components/Education";
@@ -44,7 +43,7 @@ const App = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="min-h-screen bg-gradient-primary-dark bg-fixed bg-cover bg-no-repeat flex flex-col">
+    <div className="min-h-screen bg-primary dark:bg-red-500 bg-fixed bg-cover bg-no-repeat flex flex-col transition-all duration-300">
       <Header />
 
       <main style={{ paddingTop: `${headerHeight}px` }}>

@@ -1,8 +1,6 @@
-html, body {
+html,
+body {
   margin: 0 !important;
   padding: 0;
   box-sizing: border-box;
-  background: linear-gradient(to top, #023751 0%, #01283B 22%, #011F2D 40%, #011925 62%, #010E15 84%, #010A0E 100%);
-  background-size: cover;
-  background-attachment: fixed;
 }
