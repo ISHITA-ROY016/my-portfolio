@@ -151,7 +151,7 @@ const Header = () => {
         willChange: "transform",
       }}
       className={`fixed top-3 inset-x-0 mx-auto w-[90%] max-w-[95%]
-        p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 transition-colors duration-300 bg-[#f0f7fc]/70 dark:bg-[rgba(6,18,33,0.45)]`}
+        p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 bg-[#f0f7fc]/70 dark:bg-[rgba(6,18,33,0.45)]`}
     >
       {/* 👈 Left Side: Menu + Logo */}
       <div className="flex items-center gap-3">
