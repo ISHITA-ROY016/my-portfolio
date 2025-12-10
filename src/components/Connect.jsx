@@ -105,7 +105,7 @@ const Connect = () => {
         }
         type={status}
       />
-      <h2 className="text-3xl md:text-4xl font-bold text-darkHeading mt-3 sm:mt-0 mb-6 md:mb-10">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#f4a01a] mt-3 sm:mt-0 mb-6 md:mb-10">
         Let's Connect
       </h2>
 
@@ -121,7 +121,7 @@ const Connect = () => {
               placeholder="Your Name *"
               onChange={handleChange}
               // required
-              className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/50 border ${borderClass(
+              className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/55 dark:placeholder:text-black/50 border ${borderClass(
                 "name",
                 formData.name
               )}`}
@@ -134,7 +134,7 @@ const Connect = () => {
               type="text"
               placeholder="Phone"
               onChange={handleChange}
-              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
+              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/55 dark:placeholder:text-black/50"
             />
           </div>
 
@@ -147,7 +147,7 @@ const Connect = () => {
               placeholder="Email *"
               // required
               onChange={handleChange}
-              className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/50 border ${borderClass(
+              className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/55 dark:placeholder:text-black/50 border ${borderClass(
                 "email",
                 formData.email
               )}`}
@@ -160,7 +160,7 @@ const Connect = () => {
               type="text"
               placeholder="Subject"
               onChange={handleChange}
-              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none"
+              className="bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/55 dark:placeholder:text-black/50"
             />
           </div>
 
@@ -180,7 +180,7 @@ const Connect = () => {
             // required
             placeholder="Message *"
             onChange={handleChange}
-            className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/50 border ${borderClass(
+            className={`bg-ConnectBg text-black px-4 py-3 rounded-md outline-none placeholder:text-black/55 dark:placeholder:text-black/50 border ${borderClass(
               "message",
               formData.message
             )}`}
@@ -190,20 +190,13 @@ const Connect = () => {
           <RippleButton
             type="submit"
             disabled={!isValid || status === "sending"}
-            className={`bg-darkHeading text-white font-semibold py-3 rounded-md mt-4 transition-all w-full text-center ${!isValid || status === "sending"
+            className={`bg-darkHeading text-text dark:text-white font-semibold py-3 rounded-md mt-4 transition-all w-full text-center ${!isValid || status === "sending"
               ? "opacity-50 cursor-not-allowed"
               : "hover:bg-[#d98b1c] cursor-pointer"
               }`}
           >
             {status === "sending" ? "Sending..." : "Send Message"}
           </RippleButton>
-
-          {/* {status === "success" && (
-            <p className="text-green-400 mt-2 transition-opacity duration-500">{status && "Message sent successfully!"}</p>
-          )}
-          {status === "error" && (
-            <p className="text-red-400 mt-2 transition-opacity duration-500">{status && "Something went wrong."}</p>
-          )} */}
 
         </form>
 
@@ -215,7 +208,7 @@ const Connect = () => {
             </div>
             <div>
               <p className="text-darkHeading font-semibold">Mobile Number</p>
-              <p className="text-darkText">+91 9051 281 659</p>
+              <p className="text-text dark:text-darkText">+91 9051 281 659</p>
             </div>
           </div>
 
@@ -225,7 +218,7 @@ const Connect = () => {
             </div>
             <div>
               <p className="text-darkHeading font-semibold">Email</p>
-              <p className="text-darkText">royishita016@gmail.com</p>
+              <p className="text-text dark:text-darkText">royishita016@gmail.com</p>
             </div>
           </div>
 
@@ -235,7 +228,7 @@ const Connect = () => {
             </div>
             <div>
               <p className="text-darkHeading font-semibold">Address</p>
-              <p className="text-darkText">Bangalore, Karnataka, India</p>
+              <p className="text-text dark:text-darkText">Bangalore, Karnataka, India</p>
             </div>
           </div>
         </div>

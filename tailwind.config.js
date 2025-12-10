@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class", '[data-theme="dark"]'],
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -35,10 +35,33 @@ export default {
       },
 
       backgroundImage: {
-        'gradient-secondary-light': 'linear-gradient(to bottom, #A9ADAE, #FFFFFF)', // Light mode secondary background
+        'gradient-secondary-light': 'linear-gradient(to bottom, #e3f5fa, #FFFFFF)', // Light mode secondary background
         'gradient-primary-dark': 'linear-gradient(360deg, #023751 0%, #01283B 22%, #011F2D 40%, #011925 62%, #010E15 84%, #010A0E 100%)', // Dark mode background
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.animated-border': {
+          position: 'relative',
+          overflow: 'hidden',
+          borderRadius: '12px',
+        },
+        '.animated-border::before': {
+          content: '""',
+          position: 'absolute',
+          inset: '0',
+          padding: '1.2px',
+          borderRadius: 'inherit',
+          pointerEvents: 'none',
+          background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.5) 50%, transparent 100%)',
+          backgroundSize: '200% 200%',
+          animation: 'shine-move 5s linear infinite',
+          mask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
+          WebkitMaskComposite: 'xor',
+        }
+      })
+    }
+  ]
 }

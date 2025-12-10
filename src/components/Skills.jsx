@@ -3,14 +3,14 @@ import SkillsTechMarquee from './SkillsTechMarquee'
 
 const Skills = () => {
     return (
-        <div id='skills' className='animated-border rounded-lg w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7'>
+        <div id='skills' className='rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7'>
             <div
-                className='flex-grow bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8 min-h-[400px]'
+                className='flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8 min-h-[400px]'
             >
                 {/* Title */}
                 <div className='flex gap-3 items-center'>
                     <img src='/assets/Skills.svg' height={50} width={55} alt="skills-icon" />
-                    <span className='text-3xl md:text-4xl font-bold'>My Skills</span>
+                    <span className='text-3xl md:text-4xl font-bold text-text dark:text-white'>My Skills</span>
                 </div>
 
                 {/* Responsive Layout */}
@@ -22,7 +22,7 @@ const Skills = () => {
                     </div>
 
                     {/* Divider — visible only on medium+ screens */}
-                    <div className='hidden md:block w-[2px] self-stretch bg-darkText opacity-60 items-center'></div>
+                    <div className='hidden md:block w-[2px] self-stretch bg-text dark:bg-darkText opacity-60 items-center'></div>
 
                     {/* Right Side — Skills List */}
                     <div className='w-full md:w-[60%]'>
@@ -33,7 +33,7 @@ const Skills = () => {
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
                                     <span className="text-iconColor text-xl md:text-2xl font-semibold ">Frontend:</span>{" "}
-                                    <span className="text-darkText text-sm md:text-base font-semibold ml-2">
+                                    <span className="text-text dark:text-darkText text-sm md:text-base font-semibold ml-2">
                                         HTML, CSS, JavaScript (ES6+), TypeScript, ReactJS, Redux, Context API,
                                         Tailwind CSS, Material UI, Shadcn UI, Framer Motion
                                     </span>
@@ -45,7 +45,7 @@ const Skills = () => {
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
                                     <span className="text-iconColor text-xl md:text-2xl font-semibold">Backend:</span>{" "}
-                                    <span className="text-darkText text-sm md:text-base font-semibold ml-2">
+                                    <span className="text-text dark:text-darkText text-sm md:text-base font-semibold ml-2">
                                         Java, Spring (Core, Boot, ORM, DAO, AOP, AI), Hibernate, RESTful APIs,
                                         Microservices
                                     </span>
@@ -57,7 +57,7 @@ const Skills = () => {
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
                                     <span className="text-iconColor text-xl md:text-2xl font-semibold">Databases:</span>{" "}
-                                    <span className="text-darkText text-sm md:text-base font-semibold ml-2">
+                                    <span className="text-text dark:text-darkText text-sm md:text-base font-semibold ml-2">
                                         SQL (Oracle, MySQL, PostgreSQL), MongoDB
                                     </span>
                                 </div>
@@ -68,7 +68,7 @@ const Skills = () => {
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
                                     <span className="text-iconColor text-xl md:text-2xl font-semibold">Testing:</span>{" "}
-                                    <span className="text-darkText text-sm md:text-base font-semibold ml-2">
+                                    <span className="text-text dark:text-darkText text-sm md:text-base font-semibold ml-2">
                                         Jest, React Testing Library, Cypress
                                     </span>
                                 </div>
@@ -79,7 +79,7 @@ const Skills = () => {
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
                                     <span className="text-iconColor text-xl md:text-2xl font-semibold">Tools & Platforms:</span>{" "}
-                                    <span className="text-darkText text-sm md:text-base font-semibold ml-2">
+                                    <span className="text-text dark:text-darkText text-sm md:text-base font-semibold ml-2">
                                         Git, GitHub, Jenkins (CI/CD), Firebase, IntelliJ IDEA, VS Code, Postman,
                                         Bash Script (Linux), Power Platform, Azure, Swagger UI
                                     </span>
@@ -91,7 +91,7 @@ const Skills = () => {
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
                                     <span className="text-iconColor text-xl md:text-2xl font-semibold">Core Concepts:</span>{" "}
-                                    <span className="text-darkText text-sm md:text-base font-semibold ml-2">
+                                    <span className="text-text dark:text-darkText text-sm md:text-base font-semibold ml-2">
                                         OOPs, MVC Architecture, Responsive Design, State Management, UI/UX Design,
                                         Product Strategy
                                     </span>

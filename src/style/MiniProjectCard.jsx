@@ -45,10 +45,9 @@ const MiniProjectCard = ({ project, onFlipChange }) => {
                 style={{ transform: `rotateY(${flipped ? 180 : 0}deg)` }}
             >
                 {/* FRONT */}
-                <div className="absolute inset-0 bg-gray-300/50 rounded-xl backface-hidden 
+                <div className="absolute inset-0 bg-blue-50 dark:bg-gray-300/50 border border-gray-300 rounded-xl backface-hidden 
                     flex flex-col justify-center items-center gap-2 p-2 overflow-hidden">
-                    <span className="absolute top-2 right-2 px-2 py-0.5 text-[12px] font-semibold 
-                        bg-[#0b253a] text-darkHeading rounded-md shadow">
+                    <span className="absolute top-2 right-2 px-2 py-0.5 text-[12px] font-semibold bg-darkHeading dark:bg-[#0b253a] text-[#0b253a] dark:text-darkHeading rounded-md shadow">
                         {project.category}
                     </span>
 
@@ -60,16 +59,15 @@ const MiniProjectCard = ({ project, onFlipChange }) => {
                 </div>
 
                 {/* BACK */}
-                <div className="absolute inset-0 bg-[#123b52] text-white rounded-xl p-3 
+                <div className="absolute inset-0 bg-[#c9dcea] dark:bg-[#123b52] text-white rounded-xl p-3 
                     flex flex-col rotate-y-180 backface-hidden overflow-hidden">
 
-                    <p className="text-sm text-white/90">{project.description}</p>
+                    <p className="text-sm text-text dark:text-white/90">{project.description}</p>
 
                     <div className="flex flex-wrap gap-1 mt-3">
                         {project.techStack.map((t, idx) => (
                             <span key={idx}
-                                className="px-2 py-0.5 text-[12px] text-darkHeading bg-[#0b253a] 
-                                border border-white/20 rounded-md">
+                                className="px-2 py-0.5 text-[12px] bg-darkHeading dark:bg-[#0b253a] text-[#0b253a] dark:text-darkHeading border border-white/20 rounded-md">
                                 {t}
                             </span>
                         ))}
@@ -79,8 +77,8 @@ const MiniProjectCard = ({ project, onFlipChange }) => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-max mt-auto text-sm text-darkComponent 
-                               border border-white/30 rounded-lg px-2 py-1 flex items-center gap-2">
+                        className="w-max mt-auto text-sm font-medium text-darkComponent 
+                               border border-gray-700 dark:border-white/30 hover:bg-[#5c8eb4] dark:hover:bg-white/10 rounded-lg px-2 py-1 flex items-center gap-2">
                         <img src={GithubIcon} className="w-4 h-4 filter invert brightness-100" />
                         <span>GitHub</span>
                     </a>

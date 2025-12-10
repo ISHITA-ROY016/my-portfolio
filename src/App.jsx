@@ -9,6 +9,7 @@ import MiniProjects from "./components/MiniProjects";
 import Experience from "./components/Experience";
 import Connect from "./components/Connect";
 import Footer from "./components/Footer";
+import "./app.css";
 
 const App = () => {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -43,7 +44,7 @@ const App = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="min-h-screen bg-primary dark:bg-red-500 bg-fixed bg-cover bg-no-repeat flex flex-col transition-all duration-300">
+    <div className="min-h-screen bg-gradient-secondary-light dark:bg-gradient-primary-dark bg-fixed bg-cover bg-no-repeat flex flex-col transition-all duration-300">
       <Header />
 
       <main style={{ paddingTop: `${headerHeight}px` }}>
@@ -61,3 +62,5 @@ const App = () => {
 };
 
 export default App;
+
+import React from 'react'

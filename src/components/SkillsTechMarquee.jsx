@@ -198,8 +198,8 @@ const SkillsTechMarquee = () => {
     return (
       <div className="relative overflow-hidden w-full">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 w-12 h-full bg-gradient-to-r from-darkSecondary to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 w-12 h-full bg-gradient-to-l from-darkSecondary to-transparent z-10"></div>
+        <div className="absolute left-0 top-0 w-12 h-full bg-gradient-to-r from-gradient-secondary-light to-transparent dark:from-darkSecondary dark:to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 w-12 h-full bg-gradient-to-l from-gradient-secondary-light to-transparent dark:from-darkSecondary dark:to-transparent z-10"></div>
 
         {/* Marquee track */}
         <div
@@ -213,7 +213,7 @@ const SkillsTechMarquee = () => {
           {[...logos, ...logos, ...logos].map((logo, i) => (
             <div
               key={i}
-              className="relative group w-20 h-16 bg-[#012435] p-3 border border-solid border-iconBorder rounded-lg flex items-center justify-center cursor-pointer"
+              className="relative group w-20 h-16 bg-[#e6f1fb] dark:bg-[#012435] p-3 border border-solid border-iconBorder rounded-lg flex items-center justify-center cursor-pointer"
               onMouseEnter={(e) => handleMouseEnter(e, logo)}
               onMouseLeave={handleMouseLeave}
             >

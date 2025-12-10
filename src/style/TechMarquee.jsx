@@ -51,7 +51,7 @@ const TechMarquee = () => {
                 {techLogos.map((logo, index) => (
                     <div
                         key={index}
-                        className="flex-none w-8 h-7 p-1 mx-2 sm:mx-3 sm:w-12 sm:h-10 sm:p-3 bg-[#012435] border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer shrink-0"
+                        className="flex-none w-8 h-7 p-1 mx-2 sm:mx-3 sm:w-12 sm:h-10 sm:p-3 bg-[#F3F5F7] dark:bg-[#012435] border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer shrink-0"
                         onMouseEnter={(e) => handleEnter(e, logo)}
                         onMouseLeave={handleLeave}
                     >
@@ -64,7 +64,7 @@ const TechMarquee = () => {
                 {techLogos.map((logo, index) => (
                     <div
                         key={index}
-                        className="flex-none w-8 h-7 p-1 mx-2 sm:mx-3 sm:w-12 sm:h-10 sm:p-3 bg-[#012435] border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer shrink-0"
+                        className="flex-none w-8 h-7 p-1 mx-2 sm:mx-3 sm:w-12 sm:h-10 sm:p-3 bg-[#F3F5F7] dark:bg-[#012435] border border-iconBorder rounded-lg flex items-center justify-center cursor-pointer shrink-0"
                         onMouseEnter={(e) => handleEnter(e, logo)}
                         onMouseLeave={handleLeave}
                     >

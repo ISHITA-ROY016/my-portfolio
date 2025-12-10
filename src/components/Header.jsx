@@ -141,7 +141,7 @@ const Header = () => {
       style={{
         backdropFilter: "blur(20px) saturate(1.5)",
         WebkitBackdropFilter: "blur(20px) saturate(1.5)",
-        background: "rgba(6, 18, 33, 0.45)",
+        // background: "rgba(6, 18, 33, 0.45)",
         boxShadow: scrolled
           ? "0 8px 25px rgba(7, 45, 84, 0.25)"
           : "0 0 15px rgba(0, 0, 0, 0.25)",
@@ -151,13 +151,13 @@ const Header = () => {
         willChange: "transform",
       }}
       className={`fixed top-3 inset-x-0 mx-auto w-[90%] max-w-[95%]
-        p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 transition-colors duration-300`}
+        p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 transition-colors duration-300 bg-[#f0f7fc]/70 dark:bg-[rgba(6,18,33,0.45)]`}
     >
       {/* 👈 Left Side: Menu + Logo */}
       <div className="flex items-center gap-3">
         {/* ☰ Menu Icon (Mobile only) */}
         <button
-          className="bg-darkSecondary p-2.5 rounded-lg lg:hidden hover:scale-105 transition-transform"
+          className="bg-[#7A8A8A] dark:bg-darkSecondary p-2.5 rounded-lg lg:hidden hover:scale-105 transition-transform"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <HiOutlineMenuAlt3 className="w-5 h-5 text-iconColor" />
@@ -168,7 +168,7 @@ const Header = () => {
           <BiCodeAlt className="w-7 h-7 text-iconColor" strokeWidth={1.5} />
           <span
             data-fade-text
-            className="italic font-bold text-lg xs:text-xl sm:text-2xl tracking-wide transition-all duration-300"
+            className="italic font-bold text-text dark:text-white text-lg xs:text-xl sm:text-2xl tracking-wide transition-all duration-300"
           >
             <span className="hidden [@media(max-width:380px)]:inline">I.dev</span>
             <span className="[@media(max-width:380px)]:hidden">Ishita.dev</span>
@@ -188,7 +188,7 @@ const Header = () => {
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   className={`cursor-pointer transition-colors duration-200 ${activeSection === "Projects"
                     ? "text-[#D1495B] font-bold"
-                    : "text-white hover:text-darkHeading"
+                    : "text-text dark:text-white hover:text-darkHeading"
                     }`}
                 >
                   {section}
@@ -204,7 +204,7 @@ const Header = () => {
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       onMouseEnter={() => setDropdownOpen(true)}
                       onMouseLeave={() => setDropdownOpen(false)}
-                      className="absolute top-9 left-0 w-48 bg-[#0d1b2a] 
+                      className="absolute top-9 left-0 w-48 bg-[#d0e2fb] dark:bg-[#0d1b2a] 
         border border-cyan-500/20 rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.45)] 
         overflow-hidden flex flex-col py-2"
                     >
@@ -244,7 +244,7 @@ const Header = () => {
 
                               observer.observe(target);
                             }}
-                            className="w-full text-white group-hover:text-darkHeading transition-colors duration-200"
+                            className="w-full text-text dark:text-white group-hover:text-darkHeading transition-colors duration-200"
                           >
                             {name}
                           </Link>
@@ -267,7 +267,7 @@ const Header = () => {
                 onSetActive={() => setActiveSection(section)}
                 className={`cursor-pointer transition-colors duration-200 ${activeSection === section
                   ? "text-[#D1495B] font-bold"
-                  : "text-white hover:text-darkHeading"
+                  : "text-text dark:text-white hover:text-darkHeading"
                   }`}
               >
                 {section}
@@ -302,11 +302,11 @@ const Header = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 h-screen w-56 bg-darkHeaderBg/90 shadow-lg flex flex-col items-start p-4 space-y-3 z-50 backdrop-blur-lg"
+            className="fixed top-0 left-0 h-screen w-56 bg-white dark:bg-darkHeaderBg/90 shadow-lg flex flex-col items-start p-4 space-y-3 z-50 backdrop-blur-lg"
           >
             {/* Close button */}
             <button
-              className="text-white text-xl self-end mb-2"
+              className="text-text dark:text-white text-xl self-end mb-2"
               onClick={() => setMenuOpen(false)}
             >
               <HiOutlineX />
@@ -322,12 +322,12 @@ const Header = () => {
                         onClick={() => setDropdownOpen((prev) => !prev)}
                         className={`w-full text-left cursor-pointer transition-transform ease-in-out duration-300 flex justify-between items-center ${activeSection === "Projects"
                           ? "text-[#D1495B] font-bold"
-                          : "text-white hover:text-darkHeading"
+                          : "text-text dark:text-white hover:text-darkHeading"
                           }`}
                       >
                         {section}
                         <HiChevronDown
-                          className={`text-white transform transition-transform duration-300 ${dropdownOpen ? "rotate-180" : "rotate-0"
+                          className={`text-text dark:text-white transform transition-transform duration-300 ${dropdownOpen ? "rotate-180" : "rotate-0"
                             }`}
                         />
                       </button>
@@ -373,7 +373,7 @@ const Header = () => {
 
                                     observer.observe(target);
                                   }}
-                                  className="text-white/80 text-sm hover:text-[#D1495B] transition-colors"
+                                  className="text-black/80 dark:text-white/80 text-sm hover:text-[#D1495B] transition-colors"
                                 >
                                   {name}
                                 </Link>
@@ -393,7 +393,7 @@ const Header = () => {
                       onSetActive={() => setActiveSection(section)}
                       className={`block cursor-pointer transition-colors duration-200 ${activeSection === section
                         ? "text-[#D1495B] font-bold"
-                        : "text-white hover:text-darkHeading"
+                        : "text-text dark:text-white hover:text-darkHeading"
                         }`}
                       onClick={() => setMenuOpen(false)}
                     >

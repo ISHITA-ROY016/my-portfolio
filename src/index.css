@@ -22,7 +22,7 @@
 .animated-border {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  /* border-radius: 12px; */
 }
 
 
@@ -34,12 +34,10 @@
   border-radius: inherit;
   pointer-events: none;
 
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.5) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%);
 
   background-size: 200% 200%;
   animation: shine-move 3s linear infinite;
@@ -55,8 +53,8 @@
   0% {
     background-position: 200% 0%;
   }
+
   100% {
     background-position: -200% 0%;
   }
 }
-

@@ -66,16 +66,16 @@ const Projects = () => {
     };
 
     return (
-        <div id="projects" className="animated-border rounded-lg w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7 relative z-0">
+        <div id="projects" className="rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7 relative z-0">
             <div
-                className="flex-grow bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-6 sm:gap-8"
+                className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-6 sm:gap-8"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
             >
                 {/* Title */}
                 <div className="flex items-center gap-3 mb-4">
                     <img src="/assets/projects.svg" height={50} width={55} alt="projects-icon" />
-                    <span className="text-3xl md:text-4xl font-bold text-white">My Projects</span>
+                    <span className="text-3xl md:text-4xl font-bold text-text dark:text-white">My Projects</span>
                 </div>
 
                 {/* FIXED HEIGHT CONTAINER */}
@@ -94,7 +94,7 @@ const Projects = () => {
                             onDragEnd={handleSwipe}
                             onAnimationStart={() => setIsAnimating(true)}
                             onAnimationComplete={() => setIsAnimating(false)}
-                            className="absolute top-0 left-0 w-full h-full bg-[#0b253a] rounded-xl border border-white/10 shadow-xl p-4 sm:p-4 pointer-events-none"
+                            className="absolute top-0 left-0 w-full h-full bg-[#e2eefb] dark:bg-[#0b253a] rounded-xl border border-black dark:border-white/10 shadow-xl p-4 sm:p-4 pointer-events-none"
                         >
                             <div className="pointer-events-auto flex flex-col [@media(min-width:900px)]:flex-row gap-6 items-center h-full">
                                 {/* IMAGE */}
@@ -118,11 +118,11 @@ const Projects = () => {
                                         {page + 1}. {current.title}
                                     </h2>
 
-                                    <p className="text-darkText text-sm md:text-base leading-relaxed">
+                                    <p className="text-text dark:text-darkText text-sm md:text-base leading-relaxed">
                                         {current.description}
                                     </p>
 
-                                    <div className="border-t border-white/20 my-2"></div>
+                                    <div className="border-t border-black dark:border-white/20 my-2"></div>
 
                                     <h3 className="text-darkComponent font-semibold mb-0 md:mb-1">Tech Stack</h3>
 
@@ -130,7 +130,7 @@ const Projects = () => {
                                         {current.techStack.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-2 py-1 text-xs bg-[#123b52] text-darkHeading border border-[#f5a623]/30 rounded-md"
+                                                className="px-2 py-1 text-xs bg-darkHeading dark:bg-[#123b52] text-text dark:text-darkHeading border border-[#f5a623]/30 rounded-md"
                                             >
                                                 {tech}
                                             </span>
@@ -144,7 +144,7 @@ const Projects = () => {
                                                 href={current.liveDemo}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-sm text-white border border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition-all"
+                                                className="text-sm text-text dark:text-white border border-gray-700 dark:border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-[#5c8eb4] dark:hover:bg-white/10 transition-all"
                                             >
                                                 🔗 Live Demo
                                             </a>
@@ -154,7 +154,7 @@ const Projects = () => {
                                             href={current.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-sm text-white border border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-white/10 transition-all"
+                                            className="text-sm text-text dark:text-white border border-gray-700 dark:border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-[#5c8eb4] dark:hover:bg-white/10 transition-all"
                                         >
                                             <img
                                                 src={GithubIcon}
@@ -174,13 +174,13 @@ const Projects = () => {
                 <div className="flex gap-6 mt-3 md:mt-6 relative z-50">
                     <button
                         onClick={prevProject}
-                        className="p-3 bg-darkHeaderBg border border-[#f5a623]/40 rounded-full hover:scale-110 hover:bg-[#f5a623]/10 transition-all cursor-pointer"
+                        className="p-3 bg-[#cbe2f8] dark:bg-darkHeaderBg border border-[#f5a623]/40 rounded-full hover:scale-110 hover:bg-[#f5a623]/10 transition-all cursor-pointer"
                     >
                         <FaArrowLeft className="text-[#f5a623]" />
                     </button>
                     <button
                         onClick={nextProject}
-                        className="p-3 bg-darkHeaderBg border border-[#f5a623]/40 rounded-full hover:scale-110 hover:bg-[#f5a623]/10 transition-all cursor-pointer"
+                        className="p-3 bg-[#cbe2f8] dark:bg-darkHeaderBg border border-[#f5a623]/40 rounded-full hover:scale-110 hover:bg-[#f5a623]/10 transition-all cursor-pointer"
                     >
                         <FaArrowRight className="text-[#f5a623]" />
                     </button>
