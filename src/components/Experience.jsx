@@ -4,12 +4,12 @@ import experienceData from "../data/experience.json";
 const Experience = () => {
   const [selected, setSelected] = useState(0);
 
-  const exp = experienceData[selected];
+  const exp = experienceData[selected ?? 0];
 
   return (
     <div id="experience" className="rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7 relative z-10">
       <div
-        className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8"
+        className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary p-4 py-85 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8"
       >
         {/* Title */}
         <div className="flex gap-3 items-center mb-4">
@@ -23,8 +23,8 @@ const Experience = () => {
             <div key={idx}>
               {/* Accordion Button */}
               <button
-                onClick={() => setSelected(idx)}
-                className={`w-full flex items-center gap-4 p-4 rounded-lg border transition-all
+                onClick={() => setSelected(selected === idx ? null : idx)}
+                className={`w-full flex items-center gap-4 p-4 rounded-lg border transition-all duration-300
                 ${selected === idx
                     ? "bg-[#c6deef] dark:bg-[#0b253a] border-[#EDAE49] shadow-[0_0_12px_#EDAE49]"
                     : "bg-blue-50 dark:bg-[#123b52] border-gray-500 dark:border-white/10"
@@ -32,7 +32,7 @@ const Experience = () => {
               >
                 <img
                   src={item.logo}
-                  className="w-14 h-14 rounded-full bg-white object-contain"
+                  className="w-14 h-14 rounded-full bg-white border border-black dark:border-none object-contain"
                 />
                 <div className="text-left">
                   <p className={`font-bold ${selected === idx ? "text-white" : "text-black dark:text-white"}`}>{item.company}</p>
@@ -41,13 +41,15 @@ const Experience = () => {
               </button>
 
               {/* Accordion Content */}
-              {selected === idx && (
-                <div className="mt-3 bg-[#c6deef] dark:bg-[#0b253a] rounded-xl p-5 border border-gray-800 dark:border-white/20">
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${selected === idx ? "max-h-[2000px] mt-3 border" : "max-h-0 mt-0 border-0"} rounded-xl bg-[#c6deef] dark:bg-[#0b253a] border-gray-800 dark:border-white/20`}
+              >
+                {/* Inner padded container */}
+                <div className={`transition-opacity duration-300 ${selected === idx ? "opacity-100 p-5" : "opacity-0 p-5"}`}>
+
                   {/* Row: Role + Visit Link */}
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
-                    <h2 className="text-xl font-bold text-darkHeading">
-                      {item.role}
-                    </h2>
+                    <h2 className="text-xl font-bold text-darkHeading">{item.role}</h2>
 
                     {item.companyUrl && (
                       <a
@@ -88,8 +90,9 @@ const Experience = () => {
                       </span>
                     ))}
                   </div>
+
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

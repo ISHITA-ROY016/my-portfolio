@@ -68,7 +68,7 @@ const Projects = () => {
     return (
         <div id="projects" className="rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7 relative z-0">
             <div
-                className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-6 sm:gap-8"
+                className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 py-8 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-6 sm:gap-8"
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
             >

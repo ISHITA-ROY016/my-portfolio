@@ -170,8 +170,10 @@ const Header = () => {
             data-fade-text
             className="italic font-bold text-text dark:text-white text-lg xs:text-xl sm:text-2xl tracking-wide transition-all duration-300"
           >
-            <span className="hidden [@media(max-width:380px)]:inline">I.dev</span>
-            <span className="[@media(max-width:380px)]:hidden">Ishita.dev</span>
+            {/* <span className="hidden [@media(max-width:380px)]:inline">I.dev</span>
+            <span className="[@media(max-width:380px)]:hidden">Ishita.dev</span> */}
+            <span className="block sm:hidden">I.dev</span>
+            <span className="hidden sm:block">Ishita.dev</span>
           </span>
         </div>
       </div>

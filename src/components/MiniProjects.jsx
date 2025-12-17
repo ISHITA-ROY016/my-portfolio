@@ -59,7 +59,7 @@ const MiniProjects = () => {
     return (
         <div id="miniprojects" className="rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7">
             <div
-                className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col gap-8"
+                className="flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 py-8 sm:p-6 rounded-lg flex flex-col gap-8"
             >
                 {/* Title */}
                 <div className="flex items-center gap-3 mx-auto">

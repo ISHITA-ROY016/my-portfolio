@@ -105,7 +105,10 @@ const Connect = () => {
         }
         type={status}
       />
-      <h2 className="text-3xl md:text-4xl font-bold text-[#f4a01a] mt-3 sm:mt-0 mb-6 md:mb-10">
+      <h3 className="text-xl md:text-2xl font-normal dark:font-extralight dark:sm:font-light text-[#f3b34d] mt-7 sm:mt-0 mb-2 md:mb-4">
+        Want to hire or collaborate?{" "}
+      </h3>
+      <h2 className="text-3xl md:text-4xl font-bold text-[#f4a01a] sm:mt-0 mb-6 md:mb-10">
         Let's Connect
       </h2>
 

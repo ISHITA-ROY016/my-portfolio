@@ -5,7 +5,7 @@ const Skills = () => {
     return (
         <div id='skills' className='rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7'>
             <div
-                className='flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8 min-h-[400px]'
+                className='flex-grow bg-white/80 dark:bg-none dark:bg-darkSecondary bg-darkSecondary p-4 py-8 sm:p-6 rounded-lg flex flex-col justify-center items-center gap-4 sm:gap-8 min-h-[400px]'
             >
                 {/* Title */}
                 <div className='flex gap-3 items-center'>

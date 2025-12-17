@@ -16,8 +16,9 @@ const AboutMe = () => {
 
     return (
         <div id='aboutme' className="rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-3 sm:mt-6">
-            <div className='flex-grow rounded-lg bg-white/80 dark:bg-none dark:bg-darkSecondary p-4 sm:p-6 flex flex-col md:flex-row justify-start items-center gap-4 sm:gap-8'>
+            <div className='flex-grow rounded-lg bg-white/80 dark:bg-none dark:bg-darkSecondary p-4 py-10 sm:p-6 flex flex-col md:flex-row justify-start items-center gap-12 sm:gap-8'>
 
+                {/* Image Section */}
                 <div className='relative md:w-1/2 min-w-[150px] flex justify-center items-start'>
                     <img src="/assets/ishita1.png" alt='profile-pic' className="w-3/4 h-auto object-cover rounded-lg" />
                     <div className="absolute bottom-[-25px] flex justify-center">
@@ -94,7 +95,7 @@ const AboutMe = () => {
                         <span className='whitespace-nowrap text-text dark:text-white'>. . . and more</span>
                     </div>
                     <div>
-                        <button className='flex items-center p-3 border border-solid border-black rounded-lg backdrop-blur-lg bg-white/0 mt-2' onClick={handleDownload}>
+                        <button className='flex items-center p-3 border border-solid border-black rounded-lg backdrop-blur-lg bg-white/0 mt-2 hover:bg-[#5c8eb4] dark:hover:bg-white/10' onClick={handleDownload}>
                             <img src={Download} alt='download' />
                             <span className='text-text dark:text-[#B3B3B3]'>[ Download my cv ]</span>
                         </button>
