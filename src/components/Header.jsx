@@ -168,12 +168,12 @@ const Header = () => {
           <BiCodeAlt className="w-7 h-7 text-iconColor" strokeWidth={1.5} />
           <span
             data-fade-text
-            className="italic font-bold text-text dark:text-white text-lg xs:text-xl sm:text-2xl tracking-wide transition-all duration-300"
+            className="italic font-bold text-text dark:text-white text-lg xs:text-xl sm:text-2xl tracking-wide "
           >
             {/* <span className="hidden [@media(max-width:380px)]:inline">I.dev</span>
             <span className="[@media(max-width:380px)]:hidden">Ishita.dev</span> */}
-            <span className="block xs:hidden">I.dev</span>
-            <span className="hidden xs:block">Ishita.dev</span>
+            <span className="block md:hidden">I.dev</span>
+            <span className="hidden md:block">Ishita.dev</span>
           </span>
         </div>
       </div>
