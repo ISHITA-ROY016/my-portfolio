@@ -44,7 +44,7 @@
     animation: gradientMove 3s ease-in-out infinite;
   }
 
-  @media (max-width: 380px) {
+  /* @media (max-width: 380px) {
   [data-fade-text] span {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -52,5 +52,5 @@
   [data-fade-text] span.show {
     opacity: 1;
   }
-}
+} */
   
