@@ -172,8 +172,8 @@ const Header = () => {
           >
             {/* <span className="hidden [@media(max-width:380px)]:inline">I.dev</span>
             <span className="[@media(max-width:380px)]:hidden">Ishita.dev</span> */}
-            <span className="block sm:hidden">I.dev</span>
-            <span className="hidden sm:block">Ishita.dev</span>
+            <span className="block xs:hidden">I.dev</span>
+            <span className="hidden xs:block">Ishita.dev</span>
           </span>
         </div>
       </div>
