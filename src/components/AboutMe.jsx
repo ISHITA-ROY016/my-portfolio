@@ -6,6 +6,14 @@ import Download from '/assets/download.svg';
 
 const AboutMe = () => {
     const handleDownload = () => {
+        // GA4 EVENT
+        if (window.gtag) {
+            window.gtag("event", "resume_click", {
+                event_category: "engagement",
+                event_label: "CV Download Button",
+            });
+        }
+
         const link = document.createElement('a');
         link.href = '/pdf/cv.pdf';
         link.download = 'Ishita_Roy_CV.pdf';

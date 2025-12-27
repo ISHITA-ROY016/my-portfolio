@@ -65,6 +65,16 @@ const Projects = () => {
         else if (info.offset.x < -100) nextProject();
     };
 
+    const trackGithubClick = (projectTitle, projectIndex) => {
+        if (window.gtag) {
+            window.gtag("event", "project_github_click", {
+                event_category: "portfolio",
+                event_label: projectTitle,
+                project_index: projectIndex + 1,
+            });
+        }
+    };
+
     return (
         <div id="projects" className="rounded-lg border border-[#bcbcbc] dark:border-none dark:animated-border w-full md:w-3/4 max-w-[95%] mx-auto mt-4 sm:mt-7 relative z-0">
             <div
@@ -154,6 +164,7 @@ const Projects = () => {
                                             href={current.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={() => trackGithubClick(current.title, page)}
                                             className="text-sm text-text dark:text-white border border-gray-700 dark:border-white/30 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-[#5c8eb4] dark:hover:bg-white/10 transition-all"
                                         >
                                             <img
