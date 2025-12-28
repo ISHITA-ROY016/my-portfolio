@@ -1,0 +1,42 @@
+[
+    {
+        "title": "AWS Outage October 2025: How a DNS Glitch Disrupted the Global Internet",
+        "description": "A breakdown of the October 2025 AWS outage caused by a DNS failure, how it propagated globally, and what it teaches us about cloud resilience and single points of failure.",
+        "date": "October 22, 2025",
+        "readTime": "6 min read",
+        "tags": [
+            "AWS",
+            "System Design",
+            "DNS",
+            "Cloud",
+            "Outage Analysis"
+        ],
+        "url": "https://medium.com/@royishita016/aws-outage-october-2025-dns-glitch-cripples-aws-global-internet-ad71a8ce163a"
+    },
+    {
+        "title": "IntelliJ IDEA vs VS Code: Unraveling the IDE Dilemma",
+        "description": "A comparative analysis of IntelliJ IDEA and VS Code, covering performance, extensibility, developer workflows, and how to choose the right IDE based on your needs.",
+        "date": "May 16, 2024",
+        "readTime": "5 min read",
+        "tags": [
+            "Developer Tools",
+            "IDEs",
+            "Productivity",
+            "Engineering"
+        ],
+        "url": "https://medium.com/@royishita016/intellij-idea-vs-vs-code-unraveling-the-ide-dilemma-cf0443c2a03b"
+    },
+    {
+        "title": "Mastering State Management in Flutter with MobX",
+        "description": "An in-depth explanation of state management in Flutter using MobX, focusing on reactivity, observables, actions, and real-world architectural patterns.",
+        "date": "May 16, 2024",
+        "readTime": "6 min read",
+        "tags": [
+            "Flutter",
+            "State Management",
+            "MobX",
+            "Architecture"
+        ],
+        "url": "https://medium.com/@royishita016/mastering-state-management-in-flutter-with-mobx-b1db983a9695"
+    }
+]

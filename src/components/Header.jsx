@@ -4,6 +4,7 @@ import MoonIcon from "/assets/moonIcon.svg";
 import LinkedInIcon from "/assets/linkedin.svg";
 import GithubIcon from "/assets/github.svg";
 import LeetCodeIcon from "/assets/leetcode.svg";
+import MediumIcon from "/assets/medium.svg";
 import { BiCodeAlt } from "react-icons/bi";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
@@ -68,6 +69,7 @@ const Header = () => {
       { id: "projects", name: "Projects" },
       { id: "miniprojects", name: "Projects" },
       { id: "experience", name: "Experience" },
+      { id: "blogs", name: "Blogs" },
       { id: "connect", name: "Connect" },
     ];
 
@@ -153,7 +155,7 @@ const Header = () => {
       className={`fixed top-3 inset-x-0 mx-auto w-[90%] max-w-[95%]
         p-2.5 sm:p-4 rounded-xl flex justify-between items-center z-50 bg-[#f0f7fc]/70 dark:bg-[rgba(6,18,33,0.45)]`}
     >
-      {/* 👈 Left Side: Menu + Logo */}
+      {/*  Left Side: Menu + Logo */}
       <div className="flex items-center gap-3">
         {/* ☰ Menu Icon (Mobile only) */}
         <button
@@ -163,7 +165,7 @@ const Header = () => {
           <HiOutlineMenuAlt3 className="w-5 h-5 text-iconColor" />
         </button>
 
-        {/* 💻 Logo */}
+        {/*  Logo */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 min-w-0">
           <BiCodeAlt className="w-7 h-7 text-iconColor" strokeWidth={1.5} />
           <span
@@ -178,9 +180,9 @@ const Header = () => {
         </div>
       </div>
 
-      {/* 🌐 Nav Links (Desktop) */}
+      {/*  Nav Links (Desktop) */}
       <div className="hidden lg:flex justify-between items-center gap-4 sm:gap-6 xl:gap-8 font-semibold text-lg relative">
-        {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map((section) => (
+        {["About Me", "Education", "Skills", "Projects", "Experience", "Blogs", "Connect"].map((section) => (
           <div key={section} className="relative">
             {section === "Projects" ? (
               <>
@@ -279,8 +281,11 @@ const Header = () => {
         ))}
       </div>
 
-      {/* 👉 Right Side: Socials + Theme */}
+      {/*  Right Side: Socials + Theme */}
       <div className="flex items-center gap-3 sm:gap-4">
+        <a href="https://medium.com/@royishita016" target="_blank" rel="noopener noreferrer">
+          <img src={MediumIcon} alt="Medium" className="w-6 h-6 sm:w-8 sm:h-8 hover:scale-110 transition-transform" />
+        </a>
         <a href="https://www.linkedin.com/in/ishita-roy-67667a200/" target="_blank" rel="noopener noreferrer">
           <img src={LinkedInIcon} alt="LinkedIn" className="w-5 h-5 sm:w-6 sm:h-6 hover:scale-110 transition-transform" />
         </a>
@@ -295,7 +300,7 @@ const Header = () => {
         </button>
       </div>
 
-      {/* 📱 Mobile Menu */}
+      {/*  Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -315,7 +320,7 @@ const Header = () => {
             </button>
 
             {/* Mobile Menu Links */}
-            {["About Me", "Education", "Skills", "Projects", "Experience", "Connect"].map(
+            {["About Me", "Education", "Skills", "Projects", "Experience", "Blogs", "Connect"].map(
               (section) => (
                 <div key={section} className="w-full">
                   {section === "Projects" ? (

@@ -1,7 +1,7 @@
 .loader-wrapper {
   height: 100vh;
   width: 100%;
-  background: #000d1d; /* deep sleek navy-black */
+  background: #000d1d; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,6 @@
   overflow: hidden;
 }
 
-/* ✨ LIGHT RAY EFFECT */
 .loader-wrapper::before {
   content: "";
   position: absolute;
@@ -43,7 +42,6 @@
   }
 }
 
-/* Loader circle */
 .loader-circle {
   width: 60px;
   height: 60px;

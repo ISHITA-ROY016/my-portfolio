@@ -7,14 +7,12 @@
             rgba(192, 132, 252, 0.4) 60deg,
             transparent 180deg);
     content: '';
-    /* Ensure it's rendered */
     position: absolute;
     left: -25%;
     top: -25%;
     height: 150%;
     width: 150%;
     z-index: -1;
-    /* Move it behind */
     animation: border-spin 6s linear infinite;
 }
 

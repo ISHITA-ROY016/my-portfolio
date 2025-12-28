@@ -16,7 +16,7 @@ const Connect = () => {
   const [isValid, setIsValid] = useState(false);
   const [status, setStatus] = useState(null);
 
-  // 🔍 Validate fields
+  // Validate fields
   const validate = (data) => {
     const newErrors = {};
 
@@ -83,7 +83,7 @@ const Connect = () => {
     }
   };
 
-  // ⭐ Utility for dynamic borders
+  // Utility for dynamic borders
   const borderClass = (field, value) => {
     if (errors[field]) return "border-red-500";
     if (value.trim()) return "border-green-500";

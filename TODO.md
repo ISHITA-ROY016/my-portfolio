@@ -21,4 +21,4 @@
 - [x] Build Connect component
 
 # future components
-- [ ] Build Blogs component
+- [x] Build Blogs component

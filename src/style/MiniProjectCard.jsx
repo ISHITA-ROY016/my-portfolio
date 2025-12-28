@@ -8,7 +8,6 @@ const MiniProjectCard = ({ project, onFlipChange }) => {
     const [wobble, setWobble] = useState(0);
     const wrapperRef = useRef(null);
 
-    // Notify parent when flipped
     useEffect(() => {
         if (onFlipChange) onFlipChange(flipped);
     }, [flipped]);

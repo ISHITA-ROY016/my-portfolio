@@ -28,7 +28,7 @@ const Skills = () => {
                     <div className='w-full md:w-[60%]'>
                         <ul className='pl-2 md:pl-5 space-y-3'>
 
-                            {/* 🖥️ Frontend */}
+                            {/*  Frontend */}
                             <li className="flex items-start">
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
@@ -40,7 +40,7 @@ const Skills = () => {
                                 </div>
                             </li>
 
-                            {/* ⚙️ Backend */}
+                            {/*  Backend */}
                             <li className="flex items-start">
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
@@ -52,7 +52,7 @@ const Skills = () => {
                                 </div>
                             </li>
 
-                            {/* 🗃️ Databases */}
+                            {/*  Databases */}
                             <li className="flex items-start">
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
@@ -63,7 +63,7 @@ const Skills = () => {
                                 </div>
                             </li>
 
-                            {/* 🧪 Testing */}
+                            {/*  Testing */}
                             <li className="flex items-start">
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
@@ -74,7 +74,7 @@ const Skills = () => {
                                 </div>
                             </li>
 
-                            {/* 🔧 Tools & Platforms */}
+                            {/*  Tools & Platforms */}
                             <li className="flex items-start">
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>
@@ -86,7 +86,7 @@ const Skills = () => {
                                 </div>
                             </li>
 
-                            {/* 💡 Core Concepts */}
+                            {/*  Core Concepts */}
                             <li className="flex items-start">
                                 <span className="text-iconColor text-2xl mr-2">•</span>
                                 <div>

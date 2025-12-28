@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import MiniProjects from "./components/MiniProjects";
 import Experience from "./components/Experience";
+import Blogs from "./components/Blogs";
 import Connect from "./components/Connect";
 import Footer from "./components/Footer";
 import "./app.css";
@@ -16,7 +17,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fake load time so loader is visible
     const timer = setTimeout(() => setLoading(false), 3000);
 
     return () => clearTimeout(timer);
@@ -54,6 +54,7 @@ const App = () => {
         <Projects />
         <MiniProjects />
         <Experience />
+        <Blogs />
         <Connect />
         <Footer />
       </main>
