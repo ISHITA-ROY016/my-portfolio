@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Loader from "./loader/Loader";
 import Header from "./components/Header";
 import AboutMe from "./components/AboutMe";
@@ -44,24 +45,25 @@ const App = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="min-h-screen bg-gradient-secondary-light dark:bg-gradient-primary-dark bg-fixed bg-cover bg-no-repeat flex flex-col transition-all duration-300">
-      <Header />
+    <>
+      <div className="min-h-screen bg-gradient-secondary-light dark:bg-gradient-primary-dark bg-fixed bg-cover bg-no-repeat flex flex-col transition-all duration-300">
+        <Header />
 
-      <main style={{ paddingTop: `${headerHeight}px` }}>
-        <AboutMe />
-        <Education />
-        <Skills />
-        <Projects />
-        <MiniProjects />
-        <Experience />
-        <Blogs />
+        <main style={{ paddingTop: `${headerHeight}px` }}>
+          <AboutMe />
+          <Education />
+          <Skills />
+          <Projects />
+          <MiniProjects />
+          <Experience />
+          <Blogs />
         <Connect />
-        <Footer />
-      </main>
-    </div>
+          <Footer />
+        </main>
+      </div>
+      <Analytics />
+    </>
   );
 };
 
 export default App;
-
-import React from 'react'
