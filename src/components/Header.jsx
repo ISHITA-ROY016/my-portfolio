@@ -192,7 +192,7 @@ const Header = () => {
                   onClick={() => setDropdownOpen((prev) => !prev)}
                   className={`cursor-pointer transition-colors duration-200 ${activeSection === "Projects"
                     ? "text-[#D1495B] font-bold"
-                    : "text-text dark:text-white hover:text-darkHeading"
+                    : "text-text dark:text-white hover:text-darkHeading dark:hover:text-darkHeading"
                     }`}
                 >
                   {section}
@@ -271,7 +271,7 @@ const Header = () => {
                 onSetActive={() => setActiveSection(section)}
                 className={`cursor-pointer transition-colors duration-200 ${activeSection === section
                   ? "text-[#D1495B] font-bold"
-                  : "text-text dark:text-white hover:text-darkHeading"
+                  : "text-text dark:text-white hover:text-darkHeading dark:hover:text-darkHeading"
                   }`}
               >
                 {section}
@@ -329,7 +329,7 @@ const Header = () => {
                         onClick={() => setDropdownOpen((prev) => !prev)}
                         className={`w-full text-left cursor-pointer transition-transform ease-in-out duration-300 flex justify-between items-center ${activeSection === "Projects"
                           ? "text-[#D1495B] font-bold"
-                          : "text-text dark:text-white hover:text-darkHeading"
+                          : "text-text dark:text-white hover:text-darkHeading dark:hover:text-darkHeading"
                           }`}
                       >
                         {section}
@@ -400,7 +400,7 @@ const Header = () => {
                       onSetActive={() => setActiveSection(section)}
                       className={`block cursor-pointer transition-colors duration-200 ${activeSection === section
                         ? "text-[#D1495B] font-bold"
-                        : "text-text dark:text-white hover:text-darkHeading"
+                        : "text-text dark:text-white hover:text-darkHeading dark:hover:text-darkHeading"
                         }`}
                       onClick={() => setMenuOpen(false)}
                     >

@@ -57,7 +57,7 @@ const App = () => {
           <MiniProjects />
           <Experience />
           <Blogs />
-        <Connect />
+          <Connect />
           <Footer />
         </main>
       </div>
