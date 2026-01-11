@@ -15,7 +15,7 @@ const AboutMe = () => {
         }
 
         const link = document.createElement('a');
-        link.href = '/pdf/cv.pdf';
+        link.href = '/pdf/cv_jan26.pdf';
         link.download = 'Ishita_Roy_CV.pdf';
         document.body.appendChild(link);
         link.click();
